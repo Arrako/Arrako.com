@@ -2,1250 +2,1890 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Música — ARRAKO</title>
-<meta name="description" content="Discografía, canciones, colaboraciones y producciones de ARRAKO.">
+<title>ARRAKO — Música</title>
 
 <style>
-:root {
-  --black:#050505;
-  --coal:#101010;
-  --anthracite:#242424;
-  --graphite:#3B3D40;
-  --offwhite:#EAE7E1;
-  --muted:#858585;
-  --yolk:#F5A800;
+
+:root{
+  --black:#040404;
+  --white:#EAE7E1;
+  --yellow:#F5A800;
   --jade:#3FAF6C;
-  --darkjade:#1F5A43;
+  --muted:#929292;
+  --line:rgba(255,255,255,.08);
 }
 
-* { box-sizing:border-box; }
+*{
+  box-sizing:border-box;
+}
 
-html { scroll-behavior:smooth; }
+html{
+  scroll-behavior:smooth;
+}
 
-body {
+body{
   margin:0;
-  background:var(--black);
-  color:var(--offwhite);
-  font-family:Arial, Helvetica, sans-serif;
+  background:#040404;
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-a {
+a{
   color:inherit;
   text-decoration:none;
 }
 
-img {
-  display:block;
-  width:100%;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 139px,
+      rgba(255,255,255,.011) 139px 140px
+    );
 }
 
-header {
+.frame{
+  position:fixed;
+  inset:14px;
+  z-index:500;
+  pointer-events:none;
+  border:1px solid rgba(245,168,0,.16);
+}
+
+
+/* CABECERA */
+
+header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(5,5,5,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.nav {
-  width:min(1450px,92%);
+  z-index:100;
   height:72px;
+  background:rgba(5,5,5,.88);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(14px);
+}
+
+.head{
+  width:min(1450px,94%);
+  height:100%;
   margin:auto;
   display:flex;
+  align-items:center;
   justify-content:space-between;
-  align-items:center;
 }
 
-.brand {
-  color:var(--yolk);
-  font-weight:900;
-  font-size:21px;
-  letter-spacing:.17em;
+.brand{
+  width:205px;
+  height:52px;
+
+  background:
+    url("/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png")
+    center/contain no-repeat;
 }
 
-nav {
+nav{
   display:flex;
-  gap:27px;
-  align-items:center;
+  gap:22px;
 }
 
-nav a {
-  color:#8c8c8c;
-  font-size:11px;
-  letter-spacing:.15em;
-}
-
-nav a:hover,
-nav .active {
-  color:var(--offwhite);
-}
-
-nav .peso {
-  color:var(--yolk);
-}
-
-.hero {
-  width:min(1450px,90%);
-  margin:auto;
-  padding:110px 0 85px;
-}
-
-.kicker {
-  color:var(--jade);
-  opacity:.7;
-  font-size:10px;
-  letter-spacing:.38em;
-  margin-bottom:22px;
-}
-
-.hero h1 {
-  margin:0;
-  font-size:clamp(72px,11vw,165px);
-  letter-spacing:-.07em;
-  line-height:.82;
-}
-
-.hero p {
-  max-width:650px;
-  margin:34px 0 0;
-  color:#818181;
-  line-height:1.8;
-  font-size:15px;
-}
-
-.subnav {
-  width:min(1450px,90%);
-  margin:auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  padding-bottom:65px;
-}
-
-.subnav a {
-  border:1px solid var(--anthracite);
-  padding:11px 15px;
-  color:#797979;
+nav a{
   font-size:9px;
-  letter-spacing:.17em;
-  transition:.2s;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:#aaa;
 }
 
-.subnav a:hover {
-  border-color:var(--yolk);
-  color:var(--yolk);
+nav a:hover{
+  color:var(--yellow);
 }
 
-.section {
-  width:min(1450px,90%);
-  margin:auto;
-  padding:95px 0;
-  border-top:1px solid var(--anthracite);
-}
 
-.section-head {
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:48vh;
   display:flex;
-  justify-content:space-between;
   align-items:flex-end;
-  gap:30px;
-  margin-bottom:42px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
 }
 
-.section-number {
-  color:var(--jade);
-  opacity:.55;
-  font-size:9px;
-  letter-spacing:.22em;
-  margin-bottom:10px;
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,4,4,.91),
+      rgba(4,4,4,.50)
+    ),
+    url("/assets/images/a-digital-illustration-of-the-universe-as-a-massiv-rgjCriSVSnqm1r_eJA2Yow-nEt7w9d3THapnEUPDDXNYA.png")
+    center/cover no-repeat;
 }
 
-.section h2 {
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1450px,94%);
+  margin:auto;
+  padding:80px 0 58px;
+}
+
+.hero h1{
+  font-size:clamp(58px,9vw,130px);
+  line-height:.8;
+  letter-spacing:-.065em;
   margin:0;
-  font-size:clamp(32px,4vw,55px);
-  font-weight:500;
-  letter-spacing:-.025em;
 }
 
-.section-desc {
-  max-width:490px;
-  color:#696969;
-  font-size:12px;
+.hero h1 span{
+  color:var(--yellow);
+}
+
+.hero p{
+  max-width:700px;
+  color:#aaa;
+  font-size:13px;
+  line-height:1.8;
+  margin:24px 0 0;
+}
+
+
+/* SECCIONES */
+
+.section{
+  width:min(1450px,94%);
+  margin:auto;
+  padding:74px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:28px;
+}
+
+.section-head small{
+  font-size:8px;
+  letter-spacing:.3em;
+  color:var(--jade);
+}
+
+.section-head h2{
+  font-size:clamp(38px,5vw,72px);
+  line-height:.9;
+  letter-spacing:-.05em;
+  margin:10px 0 0;
+}
+
+.section-head p{
+  max-width:520px;
+  color:#888;
+  font-size:11px;
   line-height:1.7;
 }
 
+
 /* TRABAJOS */
 
-.works-grid {
+.works{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:1px;
-  background:var(--anthracite);
-  border:1px solid var(--anthracite);
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
 }
 
-.work {
-  background:var(--black);
-  min-width:0;
-}
-
-.work-visual {
+.work{
   position:relative;
-  aspect-ratio:16/9;
+  min-height:330px;
   overflow:hidden;
-  background:#0c0c0c;
+  border:1px solid rgba(255,255,255,.07);
+  background:#0b0b0b;
 }
 
-.work-visual img {
+.work img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  filter:brightness(.82) saturate(.83);
-  transition:.4s;
+  filter:brightness(.48) saturate(.78);
+  transition:.5s;
 }
 
-.work:hover .work-visual img {
-  transform:scale(1.02);
-  filter:brightness(.96) saturate(1);
+.work:hover img{
+  transform:scale(1.025);
+  filter:brightness(.6);
 }
 
-.work-fallback {
-  height:100%;
-  min-height:250px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:35px;
+.work:after{
+  content:"";
+  position:absolute;
+  inset:0;
+
   background:
-    radial-gradient(circle at 50% 45%,rgba(63,175,108,.08),transparent 45%),
-    #090909;
+    linear-gradient(
+      0deg,
+      rgba(4,4,4,.96),
+      rgba(4,4,4,.18) 68%
+    );
 }
 
-.work-fallback strong {
-  max-width:85%;
-  font-size:clamp(25px,4vw,52px);
-  line-height:1;
-  letter-spacing:-.03em;
+.work-copy{
+  position:absolute;
+  z-index:2;
+  left:20px;
+  right:20px;
+  bottom:20px;
 }
 
-.work-fallback span {
-  color:var(--yolk);
-  margin-top:16px;
-  font-size:9px;
-  letter-spacing:.28em;
-}
-
-.work-body {
-  padding:27px 28px 30px;
-}
-
-.work-year {
-  color:var(--jade);
-  opacity:.75;
-  font-size:9px;
-  letter-spacing:.2em;
-}
-
-.work h3 {
-  margin:10px 0 6px;
-  font-size:27px;
-  font-weight:500;
-}
-
-.work-credit {
-  color:#747474;
-  font-size:12px;
-  min-height:18px;
-}
-
-.work-meta {
-  margin-top:18px;
-  color:#555;
-  font-size:10px;
-  letter-spacing:.1em;
-}
-
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:25px;
-}
-
-.btn {
-  min-height:34px;
-  display:inline-flex;
-  align-items:center;
-  padding:0 12px;
-  border:1px solid #303030;
-  color:#969696;
+.work-copy small{
   font-size:8px;
-  letter-spacing:.16em;
-  transition:.2s;
+  letter-spacing:.2em;
+  color:var(--jade);
 }
 
-.btn:hover {
-  border-color:var(--yolk);
-  color:var(--yolk);
+.work-copy h3{
+  font-size:27px;
+  line-height:.92;
+  letter-spacing:-.035em;
+  margin:8px 0;
 }
 
-.btn.main {
-  border-color:rgba(245,168,0,.55);
-  color:var(--yolk);
+.work-copy p{
+  font-size:10px;
+  line-height:1.55;
+  color:#aaa;
+  margin:0;
 }
 
-/* CATÁLOGO */
+.work.static{
+  cursor:default;
+}
 
-.music-grid {
+.placeholder{
+  position:absolute;
+  inset:0;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--anthracite);
-  border:1px solid var(--anthracite);
+  place-items:center;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #222,
+      #080808 65%
+    );
+
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:-.05em;
+  color:#ddd;
+  text-align:center;
+  padding:20px;
 }
 
-.card {
-  background:var(--black);
-  min-width:0;
-  transition:.25s;
+
+/* COMIDA APARTE */
+
+.comida{
+  margin-top:14px;
+  border:1px solid rgba(255,255,255,.08);
+  display:grid;
+  grid-template-columns:310px 1fr;
+  background:#090909;
 }
 
-.card:hover {
-  background:#0f0f0f;
-}
-
-.card-visual {
-  position:relative;
-  aspect-ratio:16/9;
-  overflow:hidden;
-  background:#0d0d0d;
-}
-
-.card-visual img {
+.comida-cover img{
+  display:block;
+  width:100%;
   height:100%;
   object-fit:cover;
-  filter:brightness(.84) saturate(.84);
-  transition:.35s;
 }
 
-.card:hover img {
-  transform:scale(1.025);
-  filter:brightness(.98) saturate(1);
+.comida-body{
+  padding:28px;
 }
 
-.duration {
-  position:absolute;
-  right:9px;
-  bottom:9px;
-  padding:4px 7px;
-  background:rgba(0,0,0,.8);
-  color:#ddd;
-  font-size:9px;
+.comida-body h3{
+  font-size:36px;
+  margin:0 0 8px;
 }
 
-.streaming {
-  position:absolute;
-  top:9px;
-  left:9px;
-  padding:5px 8px;
-  background:rgba(5,5,5,.88);
-  border:1px solid rgba(245,168,0,.58);
-  color:var(--yolk);
-  font-size:7px;
-  letter-spacing:.14em;
+.comida-body p{
+  color:#999;
+  font-size:11px;
+  line-height:1.7;
 }
 
-.text-cover {
-  height:100%;
-  display:flex;
+.track{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:16px;
   align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  background:
-    radial-gradient(circle,rgba(63,175,108,.08),transparent 58%),
-    #090909;
+  padding:12px 0;
+  border-top:1px solid rgba(255,255,255,.06);
 }
 
-.text-cover strong {
-  font-size:35px;
-  letter-spacing:.08em;
-}
-
-.text-cover span {
-  margin-top:9px;
-  color:var(--jade);
-  font-size:8px;
-  letter-spacing:.25em;
-}
-
-.card-body {
-  padding:21px;
-  min-height:158px;
-  display:flex;
-  flex-direction:column;
-}
-
-.label {
-  color:#5f5f5f;
-  font-size:8px;
-  letter-spacing:.22em;
-  margin-bottom:10px;
-}
-
-.card h3 {
-  margin:0;
-  font-size:18px;
-  font-weight:500;
-  line-height:1.3;
-}
-
-.credit {
-  margin-top:7px;
-  color:#717171;
+.track strong{
   font-size:11px;
 }
 
-.card-actions {
-  margin-top:auto;
-  padding-top:20px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
+.track audio{
+  width:100%;
+  height:34px;
 }
 
-.youtube::before {
-  content:"▶";
-  color:var(--yolk);
-  margin-right:6px;
-  font-size:7px;
-}
 
-.prod-badge {
-  color:var(--jade);
-  border-color:rgba(63,175,108,.35);
-}
+/* CANCIONES */
 
-/* LISTAS DE ARCHIVO */
-
-.archive-list {
-  border-top:1px solid var(--anthracite);
-}
-
-.archive-row {
+.song-grid{
   display:grid;
-  grid-template-columns:80px 1fr auto;
-  align-items:center;
-  gap:20px;
-  min-height:78px;
-  border-bottom:1px solid var(--anthracite);
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.song{
+  display:block;
+  border:1px solid rgba(255,255,255,.07);
+  background:#090909;
+  overflow:hidden;
   transition:.2s;
 }
 
-.archive-row:hover {
-  background:#0d0d0d;
+.song:hover{
+  border-color:rgba(245,168,0,.45);
 }
 
-.archive-year {
-  color:var(--jade);
-  opacity:.65;
-  font-size:9px;
-  letter-spacing:.15em;
+.song img{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  filter:brightness(.72);
 }
 
-.archive-title {
-  font-size:16px;
-}
-
-.archive-credit {
-  color:#6d6d6d;
-  margin-top:5px;
-  font-size:11px;
-}
-
-.archive-tags {
+.song>div:last-child{
   display:flex;
-  justify-content:flex-end;
-  flex-wrap:wrap;
-  gap:6px;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px;
 }
 
-.tag {
-  padding:6px 8px;
-  border:1px solid #2e2e2e;
-  color:#666;
-  font-size:7px;
-  letter-spacing:.13em;
+.song strong{
+  font-size:10px;
 }
 
-.tag.green {
+.song span{
+  font-size:9px;
+  color:#777;
+  white-space:nowrap;
+}
+
+.platform-art{
+  aspect-ratio:16/9;
+  display:grid;
+  place-items:center;
+
+  background:
+    radial-gradient(
+      circle,
+      #1f5a43,
+      #0a0a0a 68%
+    );
+
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:-.05em;
+  color:#d9ddd9;
+}
+
+
+/* FILAS */
+
+.rows{
+  border-top:1px solid var(--line);
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+
+  padding:16px 4px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.06);
+
+  transition:.2s;
+}
+
+.row:hover{
+  background:rgba(255,255,255,.025);
+  padding-left:12px;
+}
+
+.row strong{
+  display:block;
+  font-size:12px;
+}
+
+.row>div>span{
+  display:block;
+  color:#7f7f7f;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.meta{
+  text-align:right;
+}
+
+.meta em{
+  display:inline-block;
+  margin-top:5px;
   color:var(--jade);
-  border-color:rgba(63,175,108,.3);
+  font-style:normal;
+  font-size:8px;
+  letter-spacing:.12em;
 }
+
+.archive-note{
+  padding:17px;
+  border:1px solid rgba(255,255,255,.07);
+  background:#080808;
+  color:#888;
+  font-size:10px;
+  line-height:1.7;
+  margin-top:14px;
+}
+
 
 /* FOOTER */
 
-footer {
-  border-top:1px solid var(--anthracite);
-  margin-top:80px;
-}
-
-.footer {
-  width:min(1450px,90%);
-  min-height:110px;
+footer{
+  width:min(1450px,94%);
+  min-height:100px;
   margin:auto;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  color:#4e4e4e;
-  font-size:9px;
-  letter-spacing:.17em;
+  justify-content:space-between;
+  color:#5a5a5a;
+  font-size:8px;
+  letter-spacing:.18em;
 }
 
-.footer strong {
-  color:var(--yolk);
+
+/* AUDIO GENERAL */
+
+#audioButton{
+  position:fixed;
+  right:28px;
+  bottom:28px;
+  z-index:600;
+
+  height:38px;
+  padding:0 13px;
+
+  background:rgba(5,5,5,.9);
+
+  border:1px solid #2b2b2b;
+
+  color:#777;
+
+  cursor:pointer;
+
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
 }
 
-/* MOBILE */
-
-@media(max-width:1000px) {
-  .music-grid { grid-template-columns:repeat(2,1fr); }
+#audioButton.on{
+  color:var(--jade);
+  border-color:rgba(63,175,108,.4);
 }
 
-@media(max-width:780px) {
-  nav { display:none; }
 
-  .hero {
-    padding-top:80px;
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+  .works{
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .section-head {
-    flex-direction:column;
-    align-items:flex-start;
+  .song-grid{
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .works-grid,
-  .music-grid {
+}
+
+@media(max-width:800px){
+
+  .frame{
+    display:none;
+  }
+
+  .works{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .song-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .comida{
     grid-template-columns:1fr;
   }
 
-  .archive-row {
-    grid-template-columns:55px 1fr;
-    padding:17px 0;
+  .comida-cover{
+    max-height:450px;
   }
 
-  .archive-tags {
-    grid-column:2;
-    justify-content:flex-start;
+  .track{
+    grid-template-columns:1fr;
   }
 
-  .footer {
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:center;
+  .section-head{
+    display:block;
+  }
+
+  .head nav a:nth-child(n+4){
+    display:none;
+  }
+
+}
+
+@media(max-width:520px){
+
+  .works,
+  .song-grid{
+    grid-template-columns:1fr;
+  }
+
+  .brand{
+    width:150px;
+  }
+
+  .head nav{
     gap:12px;
   }
+
+  .head nav a:nth-child(n+3){
+    display:none;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="nav">
-    <a class="brand" href="/">ARRAKO</a>
 
-    <nav>
-      <a class="active" href="/musica/">MÚSICA</a>
-      <a href="/letras/">LETRAS</a>
-      <a href="/videos/">VÍDEOS</a>
-      <a href="/arrako/">ARRAKO</a>
-      <a class="peso" href="/peso-muerto/">PESO MUERTO</a>
-    </nav>
-  </div>
+<div class="frame"></div>
+
+
+<audio
+  id="bgAudio"
+  loop
+  preload="auto"
+  playsinline>
+
+  <source
+    src="/assets/audio/audio/background/LA%20MADRE%20DEL%20CORDERO%20UNO.mp3"
+    type="audio/mpeg">
+
+</audio>
+
+
+<header>
+
+<div class="head">
+
+<a
+  class="brand"
+  href="/">
+</a>
+
+<nav>
+
+<a href="#trabajos">
+TRABAJOS
+</a>
+
+<a href="#canciones">
+CANCIONES
+</a>
+
+<a href="#colaboraciones">
+COLABORACIONES
+</a>
+
+<a href="#produccion">
+PRODUCCIÓN
+</a>
+
+</nav>
+
+</div>
+
 </header>
+
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<h1>
+MÚSICA
+<br>
+<span>ARRAKO</span>
+</h1>
+
+<p>
+Catálogo organizado de trabajos,
+canciones, colaboraciones y producción.
+</p>
+
+</div>
+
+</section>
+
 
 <main>
 
-<section class="hero">
-  <div class="kicker">ARCHIVO SONORO · ARRAKO</div>
-  <h1>MÚSICA</h1>
 
-  <p>
-    Trabajos, canciones, colaboraciones y producción.
-    Un archivo de música publicada desde las primeras grabaciones
-    hasta el material más reciente.
-  </p>
-</section>
+<!-- =====================================================
+     TRABAJOS
+===================================================== -->
 
-<div class="subnav">
-  <a href="#trabajos">TRABAJOS</a>
-  <a href="#canciones">CANCIONES</a>
-  <a href="#colaboraciones">COLABORACIONES</a>
-  <a href="#producciones">PRODUCCIÓN</a>
+<section
+  class="section"
+  id="trabajos">
+
+<div class="section-head">
+
+<div>
+
+<small>
+01 / DISCOGRAFÍA Y TRABAJOS
+</small>
+
+<h2>
+TRABAJOS
+</h2>
+
+</div>
+
+<p>
+Ordenados de más reciente a más antiguo.
+Los destinos disponibles se abren pulsando
+la tarjeta completa.
+</p>
+
 </div>
 
 
-<!-- TRABAJOS -->
-
-<section class="section" id="trabajos">
-
-  <div class="section-head">
-    <div>
-      <div class="section-number">01</div>
-      <h2>TRABAJOS</h2>
-    </div>
-
-    <div class="section-desc">
-      Álbumes, maquetas y proyectos completos.
-      Ordenados desde el más reciente al más antiguo.
-    </div>
-  </div>
+<div class="works">
 
 
-  <div class="works-grid">
+<!-- BALLADS BULLETS & BULLS -->
 
-    <article class="work">
+<a
+  class="work"
+  href="https://www.youtube.com/playlist?list=PLdmtS4qvdA2sUHAvg7WBizBcDFVQMEFLk"
+  target="_blank"
+  rel="noopener">
 
-      <div class="work-visual">
-        <img
-          src="https://i.ytimg.com/vi/sliqMXws7eY/hqdefault.jpg"
-          alt="Ballads, Bullets & Bulls"
-        >
-      </div>
+<img
+  src="/assets/images/ballads-bullets-bulls.png"
+  alt="Ballads, Bullets & Bulls">
 
-      <div class="work-body">
+<div class="work-copy">
 
-        <div class="work-year">2017</div>
+<small>
+2017 · 4 TEMAS
+</small>
 
-        <h3>Ballads, Bullets & Bulls</h3>
+<h3>
+Ballads,
+<br>
+Bullets & Bulls
+</h3>
 
-        <div class="work-credit">
-          ARRAKO × NOREK BEAT
-        </div>
+<p>
+ARRAKO × Norek Beat
+</p>
 
-        <div class="work-meta">
-          4 TEMAS
-        </div>
+</div>
 
-        <div class="actions">
-          <a
-            class="btn main"
-            href="https://www.youtube.com/watch?v=sliqMXws7eY&list=PLdmtS4qvdA2sUHAvg7WBizBcDFVQMEFLk"
-            target="_blank"
-          >
-            VER TRABAJO
-          </a>
-        </div>
-
-      </div>
-    </article>
+</a>
 
 
-    <article class="work">
+<!-- COMIDA APARTE -->
 
-      <div class="work-visual">
-        <div class="work-fallback">
-          <strong>COMIDA APARTE</strong>
-          <span>ARRAKO × EL CRISTALERO</span>
-        </div>
-      </div>
+<a
+  class="work"
+  href="#comida-a-parte">
 
-      <div class="work-body">
+<img
+  src="/assets/images/El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Comida%20aparte%20%28Adelanto%29%20-%20Delantera%20-%20www.hhgroups.com.jpg"
+  alt="Comida Aparte">
 
-        <div class="work-year">2011</div>
+<div class="work-copy">
 
-        <h3>Comida aparte</h3>
+<small>
+2011 · 4 TEMAS
+</small>
 
-        <div class="work-credit">
-          Arrako & El Cristalero de los Espejismos
-        </div>
+<h3>
+Comida
+<br>
+Aparte
+</h3>
 
-        <div class="work-meta">
-          ADELANTO · 4 TEMAS
-        </div>
+<p>
+ARRAKO & El Cristalero de los Espejismos
+</p>
 
-        <div class="actions">
-          <a
-            class="btn main"
-            href="https://www.hhgroups.com/albumes/el-cristalero-de-los-espejismos-y-arrako/comida-aparte-adelanto-20823/"
-            target="_blank"
-          >
-            ARCHIVO ORIGINAL
-          </a>
-        </div>
+</div>
 
-      </div>
-    </article>
+</a>
 
 
-    <article class="work">
+<!-- ARRABAL -->
 
-      <div class="work-visual">
-        <img
-          src="https://i.ytimg.com/vi/g0XpC1zWUk0/hqdefault.jpg"
-          alt="Arrabal"
-        >
-      </div>
+<a
+  class="work"
+  href="https://www.youtube.com/playlist?list=PLT0GUe0IpJSo7XKhjHSaKR6-aIPj5AhQj"
+  target="_blank"
+  rel="noopener">
 
-      <div class="work-body">
+<img
+  src="https://i.ytimg.com/vi/g0XpC1zWUk0/hqdefault.jpg"
+  alt="Arrabal">
 
-        <div class="work-year">2009</div>
+<div class="work-copy">
 
-        <h3>Arrabal</h3>
+<small>
+2009 · SOLUCIÓN ATÓMICA
+</small>
 
-        <div class="work-credit">
-          ARRAKO & ALVERTODO · SOLUCIÓN ATÓMICA
-        </div>
+<h3>
+Arrabal
+</h3>
 
-        <div class="work-meta">
-          ÁLBUM · 25 CORTES
-        </div>
+<p>
+ARRAKO & Alvertodo
+</p>
 
-        <div class="actions">
-          <a
-            class="btn main"
-            href="https://www.youtube.com/watch?v=g0XpC1zWUk0&list=PLT0GUe0IpJSo7XKhjHSaKR6-aIPj5AhQj"
-            target="_blank"
-          >
-            VER TRABAJO
-          </a>
-        </div>
+</div>
 
-      </div>
-    </article>
+</a>
 
 
-    <article class="work">
+<!-- MUNDOSCURO -->
 
-      <div class="work-visual">
-        <div class="work-fallback">
-          <strong>MUNDOSCURO</strong>
-          <span>SOLUCIÓN ATÓMICA</span>
-        </div>
-      </div>
+<a
+  class="work"
+  href="https://www.hhgroups.com/albumes/alvertodo/mundoscuro-6271/"
+  target="_blank"
+  rel="noopener">
 
-      <div class="work-body">
+<div class="placeholder">
+MUNDO
+<br>
+SCURO
+</div>
 
-        <div class="work-year">2008</div>
+<div class="work-copy">
 
-        <h3>Mundoscuro</h3>
+<small>
+2008 · 20 CORTES
+</small>
 
-        <div class="work-credit">
-          ARRAKO & ALVERTODO · SOLUCIÓN ATÓMICA
-        </div>
+<h3>
+Mundoscuro
+</h3>
 
-        <div class="work-meta">
-          PRIMER TRABAJO CONJUNTO · 20 CORTES
-        </div>
+<p>
+Solución Atómica
+</p>
 
-        <div class="actions">
-          <a
-            class="btn"
-            href="https://www.hhgroups.com/albumes/alvertodo/mundoscuro-6271/"
-            target="_blank"
-          >
-            ARCHIVO
-          </a>
-        </div>
+</div>
 
-      </div>
-    </article>
+</a>
 
 
-    <article class="work">
+<!-- LA RUTA NATURAL -->
 
-      <div class="work-visual">
-        <div class="work-fallback">
-          <strong>LA RUTA NATURAL</strong>
-          <span>ARCHIVO 2005</span>
-        </div>
-      </div>
+<div class="work static">
 
-      <div class="work-body">
+<div class="placeholder">
+LA RUTA
+<br>
+NATURAL
+</div>
 
-        <div class="work-year">2005</div>
+<div class="work-copy">
 
-        <h3>La Ruta Natural</h3>
+<small>
+2005
+</small>
 
-        <div class="work-credit">
-          ARRAKO & EL CRISTALERO DE LOS ESPEJISMOS
-        </div>
+<h3>
+La Ruta Natural
+</h3>
 
-        <div class="work-meta">
-          TRABAJO COMPLETO
-        </div>
+<p>
+ARRAKO & El Cristalero de los Espejismos
+</p>
 
-      </div>
-    </article>
+</div>
 
-  </div>
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     COMIDA APARTE
+===================================================== -->
+
+<div
+  class="comida"
+  id="comida-a-parte">
+
+
+<div class="comida-cover">
+
+<img
+  src="/assets/images/El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Comida%20aparte%20%28Adelanto%29%20-%20Delantera%20-%20www.hhgroups.com.jpg"
+  alt="Comida Aparte">
+
+</div>
+
+
+<div class="comida-body">
+
+<h3>
+Comida Aparte
+</h3>
+
+<p>
+ARRAKO & El Cristalero de los Espejismos · 2011.
+Cuatro temas. Letras de ARRAKO; producción y
+masterización de El Cristalero de los Espejismos.
+</p>
+
+
+<div class="track">
+
+<strong>
+01 · No todo está en fluir
+</strong>
+
+<audio
+  controls
+  preload="none">
+
+<source
+  src="/01.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20No%20todo%20esta%20en%20fluir%20-%20www.hhgroups.com.mp3">
+
+<source
+  src="/assets/audio/comida-a-parte/01.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20No%20todo%20esta%20en%20fluir%20-%20www.hhgroups.com.mp3">
+
+</audio>
+
+</div>
+
+
+<div class="track">
+
+<strong>
+02 · Ponte el mono
+</strong>
+
+<audio
+  controls
+  preload="none">
+
+<source
+  src="/02.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Ponte%20el%20mono%20-%20www.hhgroups.com.mp3">
+
+<source
+  src="/assets/audio/comida-a-parte/02.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Ponte%20el%20mono%20-%20www.hhgroups.com.mp3">
+
+</audio>
+
+</div>
+
+
+<div class="track">
+
+<strong>
+03 · El tren que pasó por tu vida
+</strong>
+
+<audio
+  controls
+  preload="none">
+
+<source
+  src="/03.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Yo%20soy%20el%20tren%20que%20paso%20por%20tu%20vida%20-%20www.hhgroups.com.mp3">
+
+<source
+  src="/assets/audio/comida-a-parte/03.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Yo%20soy%20el%20tren%20que%20paso%20por%20tu%20vida%20-%20www.hhgroups.com.mp3">
+
+</audio>
+
+</div>
+
+
+<div class="track">
+
+<strong>
+04 · Mi poesía
+</strong>
+
+<audio
+  controls
+  preload="none">
+
+<source
+  src="/04.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Mi%20poesia%20-%20www.hhgroups.com.mp3">
+
+<source
+  src="/assets/audio/comida-a-parte/04.%20El%20cristalero%20de%20los%20espejismos%20y%20Arrako%20-%20Mi%20poesia%20-%20www.hhgroups.com.mp3">
+
+</audio>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- CANCIONES -->
+<!-- =====================================================
+     CANCIONES
+===================================================== -->
 
-<section class="section" id="canciones">
+<section
+  class="section"
+  id="canciones">
 
-  <div class="section-head">
-    <div>
-      <div class="section-number">02</div>
-      <h2>CANCIONES</h2>
-    </div>
+<div class="section-head">
 
-    <div class="section-desc">
-      Publicaciones del canal oficial de ARRAKO y lanzamientos digitales.
-    </div>
-  </div>
+<div>
 
-  <div class="music-grid" id="songsGrid"></div>
+<small>
+02 / CANCIONES
+</small>
+
+<h2>
+CANCIONES
+</h2>
+
+</div>
+
+<p>
+Cada tarjeta abre el vídeo correspondiente.
+</p>
+
+</div>
+
+
+<div class="song-grid">
+
+
+<a class="song" href="https://www.youtube.com/watch?v=M_njYhFy2-M" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/M_njYhFy2-M/hqdefault.jpg" alt="">
+<div><strong>El eco de la carne futura</strong><span>3:22</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=P-BqtN3u5Po" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/P-BqtN3u5Po/hqdefault.jpg" alt="">
+<div><strong>Núcleo excéntrico</strong><span>4:54</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=EGjWuts8j5o" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/EGjWuts8j5o/hqdefault.jpg" alt="">
+<div><strong>Renacimiento (feat. KingOsiris)</strong><span>5:24</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=XYkDzlVQCnI" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/XYkDzlVQCnI/hqdefault.jpg" alt="">
+<div><strong>Epic Phantom</strong><span>3:07</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=mC03fDnoyvQ" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/mC03fDnoyvQ/hqdefault.jpg" alt="">
+<div><strong>Breaker</strong><span>3:05</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=K5E4Vkd-rLk" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/K5E4Vkd-rLk/hqdefault.jpg" alt="">
+<div><strong>Permanezco serio</strong><span>3:40</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=PRbnkovm9HU" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/PRbnkovm9HU/hqdefault.jpg" alt="">
+<div><strong>Amistad a mitad</strong><span>3:39</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=i6F13Yt4nBw" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/i6F13Yt4nBw/hqdefault.jpg" alt="">
+<div><strong>Voy en kayak</strong><span>3:11</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=rZJ2HJe8NqA" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/rZJ2HJe8NqA/hqdefault.jpg" alt="">
+<div><strong>Cerdo volando</strong><span>3:27</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=OlUKDbvvkYc" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/OlUKDbvvkYc/hqdefault.jpg" alt="">
+<div><strong>Todos los caminos llevan a bailar (feat. Jade)</strong><span>3:32</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=z6x-tXi47WY" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/z6x-tXi47WY/hqdefault.jpg" alt="">
+<div><strong>Cartografía del desgarro</strong><span>4:02</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=zoNp8_cGsd4" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/zoNp8_cGsd4/hqdefault.jpg" alt="">
+<div><strong>Annatomía 🧡</strong><span>3:32</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=xDUHyFcLe60" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/xDUHyFcLe60/hqdefault.jpg" alt="">
+<div><strong>Álgido alivio abstracto</strong><span>2:32</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=h3OIzw0vdH4" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/h3OIzw0vdH4/hqdefault.jpg" alt="">
+<div><strong>Desdén</strong><span>3:22</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=5EVO_M0tP9E" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/5EVO_M0tP9E/hqdefault.jpg" alt="">
+<div><strong>Vértigo digital</strong><span>3:01</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=SXCYEpb0cCg" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/SXCYEpb0cCg/hqdefault.jpg" alt="">
+<div><strong>Flores Amarillas 2</strong><span>2:47</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=N5tOIn96p6U" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/N5tOIn96p6U/hqdefault.jpg" alt="">
+<div><strong>FumaRola</strong><span>2:09</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=S8NYySQs5-s" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/S8NYySQs5-s/hqdefault.jpg" alt="">
+<div><strong>Real</strong><span>2:31</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=U-SGcV0SMEs" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/U-SGcV0SMEs/hqdefault.jpg" alt="">
+<div><strong>La A & la P (feat. Presión)</strong><span>4:27</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=euHsIwHohqI" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/euHsIwHohqI/hqdefault.jpg" alt="">
+<div><strong>Perspectiva</strong><span>3:03</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=FlIzDrnIhPs" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/FlIzDrnIhPs/hqdefault.jpg" alt="">
+<div><strong>Precipitación Original</strong><span>2:25</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=gQf0NARlTvk" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/gQf0NARlTvk/hqdefault.jpg" alt="">
+<div><strong>Contenedor</strong><span>1:50</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=NLVi9zRstiA" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/NLVi9zRstiA/hqdefault.jpg" alt="">
+<div><strong>Ancianos (Alvertodo & Arrako, 2007)</strong><span>3:18</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=YMGEZF_YjXs" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/YMGEZF_YjXs/hqdefault.jpg" alt="">
+<div><strong>Te voy a contar (Coldman Prod., 2012)</strong><span>2:50</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=_pIbKN14-cM" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/_pIbKN14-cM/hqdefault.jpg" alt="">
+<div><strong>El Puntazo (ECDE prod., 2006)</strong><span>4:43</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=9JXLERKnLZk" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/9JXLERKnLZk/hqdefault.jpg" alt="">
+<div><strong>Sokarra (prod. beatzbyJC)</strong><span>2:19</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=XyFlIII36GU" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/XyFlIII36GU/hqdefault.jpg" alt="">
+<div><strong>Bucle</strong><span>4:29</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=ygsnsKSiwcY" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/ygsnsKSiwcY/hqdefault.jpg" alt="">
+<div><strong>AlasAlaSalsa</strong><span>3:18</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=KmPBZ5NxDJw" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/KmPBZ5NxDJw/hqdefault.jpg" alt="">
+<div><strong>Destacar</strong><span>3:16</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=I-L3Bf2WqkM" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/I-L3Bf2WqkM/hqdefault.jpg" alt="">
+<div><strong>Termodinámica</strong><span>3:20</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=qKMwCZhJz8c" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/qKMwCZhJz8c/hqdefault.jpg" alt="">
+<div><strong>Fuertes</strong><span>4:18</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=lc0oe9UEEN4" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/lc0oe9UEEN4/hqdefault.jpg" alt="">
+<div><strong>Delantero</strong><span>3:07</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=xw8Vc9fJIWQ" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/xw8Vc9fJIWQ/hqdefault.jpg" alt="">
+<div><strong>Eclosión</strong><span>3:11</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=C9WdXYA5tkk" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/C9WdXYA5tkk/hqdefault.jpg" alt="">
+<div><strong>Lo siento Más</strong><span>4:06</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=YNEErRZat40" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/YNEErRZat40/hqdefault.jpg" alt="">
+<div><strong>Desembucho (Prod. L.E.N. Beats)</strong><span>3:57</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=sPIf7_0oumo" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/sPIf7_0oumo/hqdefault.jpg" alt="">
+<div><strong>Resúmen</strong><span>2:41</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=7e6T-_IangI" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/7e6T-_IangI/hqdefault.jpg" alt="">
+<div><strong>Lo siento</strong><span>4:23</span></div>
+</a>
+
+<a class="song" href="https://www.youtube.com/watch?v=SvSC1IamWDM" target="_blank" rel="noopener">
+<img src="https://i.ytimg.com/vi/SvSC1IamWDM/hqdefault.jpg" alt="">
+<div><strong>Galaxia (HuecoProds)</strong><span>3:35</span></div>
+</a>
+
+
+<div class="song platform">
+
+<div class="platform-art">
+EVEREST
+</div>
+
+<div>
+<strong>
+Everest
+</strong>
+<span>
+EN PLATAFORMAS
+</span>
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="archive-note">
+
+También forma parte del archivo:
+
+<strong>
+Discurso macedoneo
+</strong>
+
+— Secuencias de vida Vol. 2, 2008.
+
+</div>
+
 
 </section>
 
 
-<!-- COLABORACIONES -->
+<!-- =====================================================
+     COLABORACIONES
+===================================================== -->
 
-<section class="section" id="colaboraciones">
+<section
+  class="section"
+  id="colaboraciones">
 
-  <div class="section-head">
-    <div>
-      <div class="section-number">03</div>
-      <h2>COLABORACIONES</h2>
-    </div>
 
-    <div class="section-desc">
-      Apariciones de ARRAKO en trabajos y canciones de otros artistas.
-    </div>
-  </div>
+<div class="section-head">
 
-  <div class="archive-list" id="collabsList"></div>
+<div>
+
+<small>
+03 / COLABORACIONES
+</small>
+
+<h2>
+COLABORACIONES
+</h2>
+
+</div>
+
+<p>
+Cuando ARRAKO también produjo el tema,
+se indica en la misma fila.
+</p>
+
+</div>
+
+
+<div class="rows">
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/temas/ekem/zaragoza-represents-con-arrako-jones-y-war-872873/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Zaragoza represents
+</strong>
+<span>
+Ekem feat. Arrako Jones & War
+</span>
+</div>
+
+<div class="meta">
+<span>
+2023
+</span>
+<em>
+COLABORACIÓN
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/ekem/ekemfuckmassacra-36299/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Papa
+</strong>
+<span>
+Ekem feat. Arrako
+</span>
+</div>
+
+<div class="meta">
+<span>
+2013
+</span>
+<em>
+COLABORACIÓN · PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/3floorstudios/the-mixtape-vol.1-9344/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Nueva era real
+</strong>
+<span>
+Eric Placton & Arrako
+</span>
+</div>
+
+<div class="meta">
+<span>
+2009
+</span>
+<em>
+COLABORACIÓN
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kungflow/pareidolia-10878/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+El fin del principio
+</strong>
+<span>
+KungFlow feat. Solución Atómica
+</span>
+</div>
+
+<div class="meta">
+<span>
+2009
+</span>
+<em>
+COLABORACIÓN · PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/artistas/kero/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Gris paisaje social
+</strong>
+<span>
+Mester, Alvertodo, Kero & Arrako
+</span>
+</div>
+
+<div class="meta">
+<span>
+2009
+</span>
+<em>
+COLABORACIÓN
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.youtube.com/watch?v=9e5GaQLEJvY"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Por el cobre
+</strong>
+<span>
+Colaboración con Arrako · prod. Norek
+</span>
+</div>
+
+<div class="meta">
+<span>
+—
+</span>
+<em>
+COLABORACIÓN
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.youtube.com/watch?v=yogN5QZ0HY4"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Non reggeaton
+</strong>
+<span>
+Jlion, Arrako, Javi2k, Zeri
+</span>
+</div>
+
+<div class="meta">
+<span>
+—
+</span>
+<em>
+COLABORACIÓN · PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.youtube.com/watch?v=zdIuCHQIhBE"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Centros comerciales
+</strong>
+<span>
+Javi2k feat. Arrako
+</span>
+</div>
+
+<div class="meta">
+<span>
+—
+</span>
+<em>
+COLABORACIÓN · PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+</div>
 
 </section>
 
 
-<!-- PRODUCCIONES -->
+<!-- =====================================================
+     PRODUCCIÓN
+===================================================== -->
 
-<section class="section" id="producciones">
+<section
+  class="section"
+  id="produccion">
 
-  <div class="section-head">
-    <div>
-      <div class="section-number">04</div>
-      <h2>PRODUCCIÓN</h2>
-    </div>
 
-    <div class="section-desc">
-      Beats, instrumentales y trabajos producidos por ARRAKO.
-    </div>
-  </div>
+<div class="section-head">
 
-  <div class="archive-list" id="productionsList"></div>
+<div>
+
+<small>
+04 / PRODUCCIÓN
+</small>
+
+<h2>
+PRODUCCIÓN
+</h2>
+
+</div>
+
+<p>
+Producciones para otros artistas
+y piezas instrumentales.
+</p>
+
+</div>
+
+
+<div class="rows">
+
+
+<a
+  class="row"
+  href="https://www.youtube.com/watch?v=sEzTjmMNiAI"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Christmas 2025
+</strong>
+<span>
+Instrumental
+</span>
+</div>
+
+<div class="meta">
+<span>
+2025
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/claan/la-jota-en-el-mapa-45223/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Mías son las calles
+</strong>
+<span>
+Claan
+</span>
+</div>
+
+<div class="meta">
+<span>
+2016
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/ekem/ekemfuckmassacra-36299/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Os critico
+</strong>
+<span>
+Ekem
+</span>
+</div>
+
+<div class="meta">
+<span>
+2013
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.youtube.com/watch?v=t-pdiLH2RGE"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Alcánzame
+</strong>
+<span>
+El Chobbi
+</span>
+</div>
+
+<div class="meta">
+<span>
+2012
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kero-y-mester/el-noveno-sueno-18911/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Invierno de MCs
+</strong>
+<span>
+Kero & Mester
+</span>
+</div>
+
+<div class="meta">
+<span>
+2011
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kero-y-mester/el-noveno-sueno-18911/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+La venganza de los pobres
+</strong>
+<span>
+Kero & Mester
+</span>
+</div>
+
+<div class="meta">
+<span>
+2011
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kero-y-mester/el-noveno-sueno-18911/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+AM
+</strong>
+<span>
+Kero & Mester
+</span>
+</div>
+
+<div class="meta">
+<span>
+2011
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kero-y-mester/el-noveno-sueno-18911/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Hadas
+</strong>
+<span>
+Kero & Mester
+</span>
+</div>
+
+<div class="meta">
+<span>
+2011
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+<a
+  class="row"
+  href="https://www.hhgroups.com/albumes/kero-y-mester/el-noveno-sueno-18911/"
+  target="_blank"
+  rel="noopener">
+
+<div>
+<strong>
+Crudo
+</strong>
+<span>
+Kero & Mester
+</span>
+</div>
+
+<div class="meta">
+<span>
+2011
+</span>
+<em>
+PROD. ARRAKO
+</em>
+</div>
+
+</a>
+
+
+</div>
 
 </section>
+
 
 </main>
 
 
 <footer>
-  <div class="footer">
-    <strong>ARRAKO</strong>
-    <span>© 2026 ARRAKO · ARRAKO.COM</span>
-  </div>
+
+<span>
+ARRAKO.COM
+</span>
+
+<span>
+© 2026 ARRAKO
+</span>
+
 </footer>
+
+
+<button
+  id="audioButton">
+
+SONIDO · OFF
+
+</button>
 
 
 <script>
 
-/* =========================================================
-   CANCIONES DEL CANAL ARRAKO
-   ========================================================= */
+const audio =
+  document.getElementById("bgAudio");
 
-const songs = [
-
-["El eco de la carne futura","M_njYhFy2-M","3:22",true,""],
-["Núcleo excéntrico","P-BqtN3u5Po","4:54",true,""],
-["Renacimiento","EGjWuts8j5o","5:24",true,"feat. KingOsiris"],
-["Epic Phantom","XYkDzlVQCnI","3:07",false,""],
-["Breaker","mC03fDnoyvQ","3:05",false,""],
-["Permanezco serio","K5E4Vkd-rLk","3:40",false,""],
-["Amistad a mitad","PRbnkovm9HU","3:39",false,""],
-["Voy en kayak","i6F13Yt4nBw","3:11",false,""],
-["Cerdo volando","rZJ2HJe8NqA","3:27",false,""],
-["Todos los caminos llevan a bailar","OlUKDbvvkYc","3:32",false,"feat. Jade"],
-["Cartografía del desgarro","z6x-tXi47WY","4:02",false,""],
-["Annatomía","zoNp8_cGsd4","3:32",false,""],
-["Álgido alivio abstracto","xDUHyFcLe60","2:32",false,""],
-["Desdén","h3OIzw0vdH4","3:22",false,""],
-["Vértigo digital","5EVO_M0tP9E","3:01",false,""],
-["Flores Amarillas 2","SXCYEpb0cCg","2:47",false,""],
-["FumaRola","N5tOIn96p6U","2:09",false,""],
-["Real","S8NYySQs5-s","2:31",false,""],
-["La A & la P","U-SGcV0SMEs","4:27",false,"feat. Presión"],
-["Perspectiva","euHsIwHohqI","3:03",false,""],
-["Precipitación Original","FlIzDrnIhPs","2:25",false,""],
-["Contenedor","gQf0NARlTvk","1:50",false,""],
-["Ancianos","NLVi9zRstiA","3:18",false,"Alvertodo & Arrako · 2007"],
-["Te voy a contar","YMGEZF_YjXs","2:50",false,"Coldman Prod. · 2012"],
-["El Puntazo","_pIbKN14-cM","4:43",false,"ECDE prod. · 2006"],
-["Sokarra","9JXLERKnLZk","2:19",false,"prod. beatzbyJC"],
-["Bucle","XyFlIII36GU","4:29",false,""],
-["AlasAlaSalsa","ygsnsKSiwcY","3:18",false,""],
-["Destacar","KmPBZ5NxDJw","3:16",true,""],
-["Everest",null,"",true,"Lanzamiento digital"],
-["Termodinámica","I-L3Bf2WqkM","3:20",true,""],
-["Fuertes","qKMwCZhJz8c","4:18",true,""],
-["Delantero","lc0oe9UEEN4","3:07",true,""],
-["Eclosión","xw8Vc9fJIWQ","3:11",false,""],
-["Lo siento Más","C9WdXYA5tkk","4:06",false,""],
-["Desembucho","YNEErRZat40","3:57",false,"Prod. L.E.N. Beats"],
-["Resúmen","sPIf7_0oumo","2:41",false,""],
-["Lo siento","7e6T-_IangI","4:23",false,""],
-["Galaxia","SvSC1IamWDM","3:35",false,"HuecoProds"]
-
-];
+const button =
+  document.getElementById("audioButton");
 
 
-/* =========================================================
-   COLABORACIONES
-   ========================================================= */
+audio.volume = .12;
 
-const collaborations = [
 
-{
- year:"2023",
- title:"Zaragoza represents",
- credit:"Ekem feat. Arrako Jones & War",
- tags:["COLABORACIÓN"]
-},
+function st(){
 
-{
- year:"2013",
- title:"Papa",
- credit:"Ekem feat. Arrako",
- tags:["COLABORACIÓN","PROD. ARRAKO"]
-},
+  const on =
+    !audio.paused;
 
-{
- year:"2009",
- title:"Nueva era real",
- credit:"Eric Placton & Arrako",
- tags:["COLABORACIÓN"]
-},
+  button.textContent =
+    on
+    ? "SONIDO · ON"
+    : "SONIDO · OFF";
 
-{
- year:"2009",
- title:"El fin del principio",
- credit:"KungFlow feat. Solución Atómica",
- tags:["COLABORACIÓN","PROD. ARRAKO"]
-},
+  button.classList.toggle(
+    "on",
+    on
+  );
 
-{
- year:"2009",
- title:"Gris paisaje social",
- credit:"Mester · Alvertodo · Kero · Arrako",
- tags:["COLABORACIÓN"]
-},
-
-{
- year:"",
- title:"Por el cobre",
- credit:"Con Arrako · prod. Norek",
- youtube:"9e5GaQLEJvY",
- tags:["COLABORACIÓN"]
-},
-
-{
- year:"",
- title:"Non reggeaton",
- credit:"Jlion · Arrako · Javi2k · Zeri",
- youtube:"yogN5QZ0HY4",
- tags:["COLABORACIÓN","PROD. ARRAKO"]
-},
-
-{
- year:"",
- title:"Centros comerciales",
- credit:"Javi2k feat. Arrako",
- youtube:"zdIuCHQIhBE",
- tags:["COLABORACIÓN","PROD. ARRAKO"]
 }
 
-];
 
+if(
+  sessionStorage.getItem(
+    "arrakoSound"
+  ) === "on"
+){
 
-/* =========================================================
-   PRODUCCIONES / INSTRUMENTALES
-   ========================================================= */
+  audio.play()
+  .catch(()=>{});
 
-const productions = [
-
-{
- year:"2025",
- title:"Christmas 2025",
- credit:"Instrumental · Arrako",
- youtube:"sEzTjmMNiAI"
-},
-
-{
- year:"2016",
- title:"Mías son las calles",
- credit:"Claan · prod. Arrako"
-},
-
-{
- year:"2013",
- title:"Os critico",
- credit:"Ekem · prod. Arrako"
-},
-
-{
- year:"2012",
- title:"Alcánzame",
- credit:"El Chobbi · prod. Arrako",
- youtube:"t-pdiLH2RGE"
-},
-
-{
- year:"2011",
- title:"Invierno de MCs",
- credit:"Kero & Mester · prod. Arrako"
-},
-
-{
- year:"2011",
- title:"La venganza de los pobres",
- credit:"Kero & Mester · prod. Arrako"
-},
-
-{
- year:"2011",
- title:"AM",
- credit:"Kero & Mester · prod. Arrako"
-},
-
-{
- year:"2011",
- title:"Hadas",
- credit:"Kero & Mester · prod. Arrako"
-},
-
-{
- year:"2011",
- title:"Crudo",
- credit:"Kero & Mester · prod. Arrako"
 }
 
-];
 
+button.onclick = ()=>{
 
-/* =========================================================
-   RENDER CANCIONES
-   ========================================================= */
+  if(audio.paused){
 
-const songsGrid = document.getElementById("songsGrid");
+    sessionStorage.setItem(
+      "arrakoSound",
+      "on"
+    );
 
-songs.forEach(song => {
+    audio.play()
+    .catch(()=>{});
 
-  const [title,id,duration,streaming,credit] = song;
+  }else{
 
-  const card = document.createElement("article");
-  card.className = "card";
+    sessionStorage.setItem(
+      "arrakoSound",
+      "off"
+    );
 
-  let visual;
+    audio.pause();
 
-  if(id) {
-
-    visual = `
-      <div class="card-visual">
-
-        <a
-          href="https://www.youtube.com/watch?v=${id}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://i.ytimg.com/vi/${id}/hqdefault.jpg"
-            alt="${title}"
-            loading="lazy"
-          >
-        </a>
-
-        ${duration ? `<span class="duration">${duration}</span>` : ""}
-
-        ${streaming ? `<span class="streaming">EN PLATAFORMAS</span>` : ""}
-
-      </div>
-    `;
-
-  } else {
-
-    visual = `
-      <div class="card-visual">
-
-        <div class="text-cover">
-          <strong>${title.toUpperCase()}</strong>
-          <span>LANZAMIENTO DIGITAL</span>
-        </div>
-
-        ${streaming ? `<span class="streaming">EN PLATAFORMAS</span>` : ""}
-
-      </div>
-    `;
   }
 
+  setTimeout(
+    st,
+    50
+  );
 
-  card.innerHTML = `
-
-    ${visual}
-
-    <div class="card-body">
-
-      <div class="label">ARRAKO</div>
-
-      <h3>${title}</h3>
-
-      ${credit ? `<div class="credit">${credit}</div>` : ""}
-
-      <div class="card-actions">
-
-        ${id ? `
-          <a
-            class="btn youtube"
-            href="https://www.youtube.com/watch?v=${id}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            YOUTUBE
-          </a>
-        ` : ""}
-
-        ${streaming ? `
-          <span class="btn prod-badge">
-            STREAMING
-          </span>
-        ` : ""}
-
-      </div>
-
-    </div>
-  `;
-
-  songsGrid.appendChild(card);
-
-});
+};
 
 
-/* =========================================================
-   RENDER COLABORACIONES
-   ========================================================= */
+audio.onplay = st;
 
-function renderArchive(containerId,data) {
+audio.onpause = st;
 
-  const container = document.getElementById(containerId);
-
-  data.forEach(item => {
-
-    const row = document.createElement("div");
-    row.className = "archive-row";
-
-    let tags = "";
-
-    if(item.tags) {
-      tags = item.tags.map(tag =>
-        `<span class="tag ${tag.includes("PROD.") ? "green" : ""}">
-          ${tag}
-        </span>`
-      ).join("");
-    }
-
-    if(item.youtube) {
-      tags += `
-        <a
-          class="btn youtube"
-          href="https://www.youtube.com/watch?v=${item.youtube}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YOUTUBE
-        </a>
-      `;
-    }
-
-    row.innerHTML = `
-
-      <div class="archive-year">
-        ${item.year || "ARCHIVO"}
-      </div>
-
-      <div>
-        <div class="archive-title">${item.title}</div>
-        <div class="archive-credit">${item.credit}</div>
-      </div>
-
-      <div class="archive-tags">
-        ${tags}
-      </div>
-    `;
-
-    container.appendChild(row);
-
-  });
-}
-
-
-renderArchive("collabsList", collaborations);
-
-
-/* =========================================================
-   RENDER PRODUCCIONES
-   ========================================================= */
-
-const productionsList = document.getElementById("productionsList");
-
-productions.forEach(item => {
-
-  const row = document.createElement("div");
-  row.className = "archive-row";
-
-  row.innerHTML = `
-
-    <div class="archive-year">
-      ${item.year}
-    </div>
-
-    <div>
-      <div class="archive-title">${item.title}</div>
-      <div class="archive-credit">${item.credit}</div>
-    </div>
-
-    <div class="archive-tags">
-
-      <span class="tag green">
-        PROD. ARRAKO
-      </span>
-
-      ${item.youtube ? `
-        <a
-          class="btn youtube"
-          href="https://www.youtube.com/watch?v=${item.youtube}"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          YOUTUBE
-        </a>
-      ` : ""}
-
-    </div>
-  `;
-
-  productionsList.appendChild(row);
-
-});
+st();
 
 </script>
+
 
 </body>
 </html>
