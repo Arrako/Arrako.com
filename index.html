@@ -3,43 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARRAKO</title>
+
+  <title>ARRAKO — Peso Muerto</title>
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       background: #050505;
       color: #f2efe8;
-      font-family: Arial, sans-serif;
-      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.55)),
+        url("ChatGPT Image 23 ago 2026, 21_03_13.png") center center / cover no-repeat;
     }
 
-    main {
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at center,
+        transparent 35%,
+        rgba(0,0,0,0.65) 100%
+      );
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       text-align: center;
+      padding: 30px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(60px, 12vw, 150px);
-      letter-spacing: 0.08em;
+      font-size: clamp(55px, 10vw, 145px);
+      letter-spacing: 0.10em;
+      font-weight: 800;
+      text-shadow: 0 4px 25px rgba(0,0,0,0.9);
     }
 
-    p {
-      margin-top: 15px;
+    .album {
+      margin-top: 12px;
       color: #F5A800;
-      font-size: 18px;
-      letter-spacing: 0.35em;
+      font-size: clamp(15px, 2vw, 23px);
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      text-shadow: 0 3px 15px rgba(0,0,0,0.9);
+    }
+
+    .year {
+      margin-top: 14px;
+      color: rgba(242,239,232,0.65);
+      font-size: 12px;
+      letter-spacing: 0.32em;
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>ARRAKO</h1>
-    <p>PESO MUERTO</p>
-  </main>
+
+  <section class="hero">
+    <div class="content">
+      <h1>ARRAKO</h1>
+      <div class="album">PESO MUERTO</div>
+      <div class="year">2026</div>
+    </div>
+  </section>
+
 </body>
 </html>
