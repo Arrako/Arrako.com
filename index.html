@@ -3,33 +3,437 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARRAKO — Peso Muerto</title>
+
+  <title>ARRAKO — Sitio oficial</title>
+  <meta name="description" content="Sitio oficial de ARRAKO. Música, letras, vídeos y Peso Muerto.">
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #000000;
+    :root {
+      --black: #050505;
+      --coal: #111111;
+      --anthracite: #2A2A2A;
+      --graphite: #3B3D40;
+      --offwhite: #EAE7E1;
+      --yolk: #F2A61B;
+      --jade: #3FAF6C;
+      --darkjade: #1F5A43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      background: var(--black);
+      color: var(--offwhite);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* CABECERA */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.93);
+      border-bottom: 1px solid rgba(234, 231, 225, 0.09);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      width: min(1400px, 92%);
+      height: 76px;
+      margin: auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: var(--yolk);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      transition: 0.25s;
+    }
+
+    nav a:hover {
+      color: var(--offwhite);
+    }
+
+    nav .album-link {
+      color: var(--yolk);
+    }
+
+    /* PORTADA */
+
+    .hero {
+      min-height: 100vh;
+      width: min(1400px, 90%);
+      margin: auto;
+      padding: 130px 0 70px;
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      align-items: center;
+      gap: 8vw;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 0.33em;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(65px, 9vw, 145px);
+      line-height: 0.83;
+      letter-spacing: -0.06em;
+    }
+
+    .hero h2 {
+      margin: 28px 0 0;
+      color: var(--yolk);
+      font-size: clamp(24px, 3vw, 45px);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-copy {
+      max-width: 500px;
+      margin-top: 25px;
+      color: #999;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 24px;
+      border: 1px solid var(--graphite);
+      color: var(--offwhite);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      transition: 0.25s;
+    }
+
+    .button.primary {
+      background: var(--yolk);
+      border-color: var(--yolk);
+      color: var(--black);
+      font-weight: bold;
+    }
+
+    .button:hover {
+      border-color: var(--yolk);
+    }
+
+    .button.primary:hover {
+      background: var(--offwhite);
+      border-color: var(--offwhite);
+    }
+
+    /* PORTADA DEL DISCO */
+
+    .cover-wrap {
+      position: relative;
+      display: flex;
       justify-content: center;
     }
 
-    img {
+    .cover-wrap::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      top: 15%;
+      background: rgba(63, 175, 108, 0.05);
+      filter: blur(80px);
+      border-radius: 50%;
+    }
+
+    .cover {
+      position: relative;
+      width: min(100%, 560px);
       display: block;
-      max-width: 100vw;
-      max-height: 100vh;
-      width: auto;
-      height: auto;
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.65);
+    }
+
+    /* ACCESOS */
+
+    .portals {
+      border-top: 1px solid var(--anthracite);
+      background: var(--coal);
+      padding: 110px 5%;
+    }
+
+    .portals-inner {
+      width: min(1400px, 100%);
+      margin: auto;
+    }
+
+    .section-label {
+      margin-bottom: 40px;
+      color: #666;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--anthracite);
+    }
+
+    .portal {
+      min-height: 240px;
+      padding: 36px 28px;
+      border-right: 1px solid var(--anthracite);
+      border-bottom: 1px solid var(--anthracite);
+      transition: 0.25s;
+    }
+
+    .portal:first-child {
+      border-left: 1px solid var(--anthracite);
+    }
+
+    .portal:hover {
+      background: #171717;
+    }
+
+    .portal-number {
+      color: var(--jade);
+      opacity: 0.55;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+    }
+
+    .portal h3 {
+      margin: 70px 0 7px;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .portal p {
+      margin: 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      width: min(1400px, 90%);
+      margin: auto;
+      padding: 45px 0;
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-mark {
+      color: var(--yolk);
+    }
+
+    /* MÓVIL */
+
+    @media (max-width: 850px) {
+      .nav {
+        height: 65px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 110px;
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .hero-text {
+        order: 2;
+      }
+
+      .cover-wrap {
+        order: 1;
+      }
+
+      .cover {
+        width: min(100%, 520px);
+      }
+
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portal {
+        min-height: 175px;
+        border-left: 1px solid var(--anthracite);
+      }
+
+      .portal h3 {
+        margin-top: 45px;
+      }
+
+      footer {
+        gap: 20px;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
-  <img src="ChatGPT Image 23 ago 2026, 21_03_13.png" alt="Portada Peso Muerto">
+
+<header>
+  <div class="nav">
+
+    <a class="brand" href="/">ARRAKO</a>
+
+    <nav>
+      <a href="/musica/">MÚSICA</a>
+      <a href="/letras/">LETRAS</a>
+      <a href="/videos/">VÍDEOS</a>
+      <a href="/arrako/">ARRAKO</a>
+      <a class="album-link" href="/peso-muerto/">PESO MUERTO</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <div class="eyebrow">
+        ARRAKO · SITIO OFICIAL
+      </div>
+
+      <h1>ARRAKO</h1>
+
+      <h2>PESO MUERTO</h2>
+
+      <p class="hero-copy">
+        Próximo álbum.
+        Música, letras, imágenes y material oficial.
+      </p>
+
+      <div class="actions">
+        <a class="button primary" href="/peso-muerto/">
+          PESO MUERTO
+        </a>
+
+        <a class="button" href="/musica/">
+          MÚSICA
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="cover-wrap">
+
+      <img
+        class="cover"
+        src="ChatGPT%20Image%2023%20ago%202026,%2021_03_13.png"
+        alt="Peso Muerto — ARRAKO"
+      >
+
+    </div>
+
+  </section>
+
+
+  <section class="portals">
+
+    <div class="portals-inner">
+
+      <div class="section-label">
+        ARCHIVO ARRAKO
+      </div>
+
+      <div class="portal-grid">
+
+        <a class="portal" href="/musica/">
+          <div class="portal-number">01</div>
+          <h3>MÚSICA</h3>
+          <p>Canciones, discos y escucha.</p>
+        </a>
+
+        <a class="portal" href="/letras/">
+          <div class="portal-number">02</div>
+          <h3>LETRAS</h3>
+          <p>Archivo lírico de ARRAKO.</p>
+        </a>
+
+        <a class="portal" href="/videos/">
+          <div class="portal-number">03</div>
+          <h3>VÍDEOS</h3>
+          <p>Vídeos y piezas oficiales.</p>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <span class="footer-mark">
+    ARRAKO
+  </span>
+
+  <span>
+    © 2026 ARRAKO
+  </span>
+
+</footer>
+
 </body>
 </html>
