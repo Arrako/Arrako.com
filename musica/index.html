@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Música — ARRAKO</title>
+  <meta
+    name="description"
+    content="Archivo musical oficial de ARRAKO. Canciones, colaboraciones, producción y vídeos."
+  >
+
+  <style>
+    :root {
+      --black: #050505;
+      --coal: #111111;
+      --anthracite: #2A2A2A;
+      --graphite: #3B3D40;
+      --offwhite: #EAE7E1;
+      --muted: #8B8B8B;
+      --yolk: #F5A800;
+      --jade: #3FAF6C;
+      --darkjade: #1F5A43;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--offwhite);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+
+    /* CABECERA */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 5, 5, 0.94);
+      border-bottom: 1px solid rgba(234, 231, 225, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      width: min(1400px, 92%);
+      height: 72px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: var(--yolk);
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      color: #999;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      transition: 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--offwhite);
+    }
+
+
+    /* CABECERA MÚSICA */
+
+    .music-head {
+      width: min(1400px, 90%);
+      margin: auto;
+      padding: 105px 0 65px;
+    }
+
+    .eyebrow {
+      color: var(--jade);
+      opacity: 0.7;
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(65px, 10vw, 150px);
+      line-height: 0.85;
+      letter-spacing: -0.065em;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin-top: 30px;
+      color: #8c8c8c;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+
+    /* DISTRIBUCIÓN */
+
+    .distributed {
+      width: min(1400px, 90%);
+      margin: 0 auto 80px;
+      padding: 30px 0;
+      border-top: 1px solid var(--anthracite);
+      border-bottom: 1px solid var(--anthracite);
+    }
+
+    .distributed-title {
+      color: #696969;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      margin-bottom: 20px;
+    }
+
+    .distributed-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .distributed-item {
+      padding: 9px 12px;
+      border: 1px solid #262626;
+      color: #aaa;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .distributed-item::before {
+      content: "●";
+      color: var(--jade);
+      font-size: 7px;
+      margin-right: 8px;
+    }
+
+
+    /* FILTROS */
+
+    .catalogue {
+      width: min(1400px, 90%);
+      margin: auto;
+      padding-bottom: 120px;
+    }
+
+    .catalogue-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .catalogue-title {
+      margin: 0;
+      font-size: 25px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .filter {
+      cursor: pointer;
+      padding: 9px 13px;
+      border: 1px solid var(--anthracite);
+      background: transparent;
+      color: #777;
+      font-size: 9px;
+      letter-spacing: 0.13em;
+      transition: 0.2s;
+    }
+
+    .filter:hover,
+    .filter.active {
+      border-color: var(--yolk);
+      color: var(--yolk);
+    }
+
+
+    /* GRID */
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--anthracite);
+      border: 1px solid var(--anthracite);
+    }
+
+    .music-card {
+      min-width: 0;
+      background: var(--black);
+      transition: background 0.25s;
+    }
+
+    .music-card:hover {
+      background: #101010;
+    }
+
+    .visual {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #0c0c0c;
+    }
+
+    .visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.82) brightness(0.86);
+      transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+    }
+
+    .music-card:hover .visual img {
+      transform: scale(1.025);
+      filter: saturate(1) brightness(0.98);
+    }
+
+    .duration {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      padding: 4px 7px;
+      background: rgba(0,0,0,0.78);
+      color: #ddd;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+    }
+
+    .platform-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 8px;
+      background: rgba(5,5,5,0.84);
+      border: 1px solid rgba(245,168,0,0.65);
+      color: var(--yolk);
+      font-size: 8px;
+      letter-spacing: 0.12em;
+    }
+
+    .special-visual {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at center, rgba(63,175,108,0.10), transparent 60%),
+        #090909;
+    }
+
+    .special-visual strong {
+      color: var(--offwhite);
+      font-size: clamp(24px, 3vw, 45px);
+      letter-spacing: 0.12em;
+    }
+
+    .special-visual span {
+      margin-top: 8px;
+      color: var(--jade);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+    }
+
+    .card-info {
+      min-height: 160px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .type {
+      color: #606060;
+      font-size: 8px;
+      letter-spacing: 0.22em;
+      margin-bottom: 11px;
+    }
+
+    .music-card h2 {
+      margin: 0;
+      color: var(--offwhite);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 500;
+    }
+
+    .credit {
+      margin-top: 7px;
+      color: #717171;
+      font-size: 11px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid #303030;
+      color: #969696;
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      transition: 0.2s;
+    }
+
+    .link-button:hover {
+      border-color: var(--yolk);
+      color: var(--yolk);
+    }
+
+    .youtube::before {
+      content: "▶";
+      margin-right: 7px;
+      font-size: 7px;
+      color: var(--yolk);
+    }
+
+    .platform-text {
+      color: var(--jade);
+      opacity: 0.75;
+      font-size: 8px;
+      letter-spacing: 0.11em;
+      display: flex;
+      align-items: center;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--anthracite);
+    }
+
+    .footer-inner {
+      width: min(1400px, 90%);
+      min-height: 100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #505050;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+    }
+
+    .footer-mark {
+      color: var(--yolk);
+    }
+
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .music-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        height: 64px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .music-head {
+        padding-top: 80px;
+      }
+
+      .catalogue-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .music-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        padding: 30px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a class="brand" href="/">ARRAKO</a>
+
+    <nav>
+      <a class="active" href="/musica/">MÚSICA</a>
+      <a href="/letras/">LETRAS</a>
+      <a href="/videos/">VÍDEOS</a>
+      <a href="/arrako/">ARRAKO</a>
+      <a href="/peso-muerto/">PESO MUERTO</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="music-head">
+
+    <div class="eyebrow">
+      ARCHIVO SONORO
+    </div>
+
+    <h1>MÚSICA</h1>
+
+    <p class="intro">
+      Canciones, colaboraciones, archivo y producción de ARRAKO.
+      Desde las primeras grabaciones hasta el material más reciente.
+    </p>
+
+  </section>
+
+
+  <section class="distributed">
+
+    <div class="distributed-title">
+      LANZAMIENTOS DISTRIBUIDOS EN PLATAFORMAS
+    </div>
+
+    <div class="distributed-list">
+      <span class="distributed-item">El eco de la carne futura</span>
+      <span class="distributed-item">Núcleo excéntrico</span>
+      <span class="distributed-item">Renacimiento</span>
+      <span class="distributed-item">Destacar</span>
+      <span class="distributed-item">Everest</span>
+      <span class="distributed-item">Termodinámica</span>
+      <span class="distributed-item">Fuertes</span>
+      <span class="distributed-item">Delantero</span>
+    </div>
+
+  </section>
+
+
+  <section class="catalogue">
+
+    <div class="catalogue-top">
+
+      <h2 class="catalogue-title">
+        CATÁLOGO
+      </h2>
+
+      <div class="filters">
+
+        <button class="filter active" data-filter="all">
+          TODO
+        </button>
+
+        <button class="filter" data-filter="track">
+          CANCIONES
+        </button>
+
+        <button class="filter" data-filter="collab">
+          COLABORACIONES
+        </button>
+
+        <button class="filter" data-filter="production">
+          PRODUCCIÓN
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="music-grid" id="musicGrid"></div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <span class="footer-mark">
+      ARRAKO
+    </span>
+
+    <span>
+      © 2026 ARRAKO
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+const music = [
+
+  {
+    title: "El eco de la carne futura",
+    id: "M_njYhFy2-M",
+    duration: "3:22",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Núcleo excéntrico",
+    id: "P-BqtN3u5Po",
+    duration: "4:54",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Renacimiento",
+    credit: "feat. KingOsiris",
+    id: "EGjWuts8j5o",
+    duration: "5:24",
+    type: "collab",
+    distributed: true
+  },
+
+  {
+    title: "Epic Phantom",
+    id: "XYkDzlVQCnI",
+    duration: "3:07",
+    type: "track"
+  },
+
+  {
+    title: "Christmas 2025",
+    credit: "Instrumental",
+    id: "sEzTjmMNiAI",
+    duration: "2:50",
+    type: "production"
+  },
+
+  {
+    title: "Breaker",
+    id: "mC03fDnoyvQ",
+    duration: "3:05",
+    type: "track"
+  },
+
+  {
+    title: "Permanezco serio",
+    id: "K5E4Vkd-rLk",
+    duration: "3:40",
+    type: "track"
+  },
+
+  {
+    title: "Amistad a mitad",
+    id: "PRbnkovm9HU",
+    duration: "3:39",
+    type: "track"
+  },
+
+  {
+    title: "Voy en kayak",
+    id: "i6F13Yt4nBw",
+    duration: "3:11",
+    type: "track"
+  },
+
+  {
+    title: "Cerdo volando",
+    id: "rZJ2HJe8NqA",
+    duration: "3:27",
+    type: "track"
+  },
+
+  {
+    title: "Todos los caminos llevan a bailar",
+    credit: "feat. Jade",
+    id: "OlUKDbvvkYc",
+    duration: "3:32",
+    type: "collab"
+  },
+
+  {
+    title: "Cartografía del desgarro",
+    id: "z6x-tXi47WY",
+    duration: "4:02",
+    type: "track"
+  },
+
+  {
+    title: "Annatomía",
+    id: "zoNp8_cGsd4",
+    duration: "3:32",
+    type: "track"
+  },
+
+  {
+    title: "Álgido alivio abstracto",
+    id: "xDUHyFcLe60",
+    duration: "2:32",
+    type: "track"
+  },
+
+  {
+    title: "Desdén",
+    id: "h3OIzw0vdH4",
+    duration: "3:22",
+    type: "track"
+  },
+
+  {
+    title: "Vértigo digital",
+    id: "5EVO_M0tP9E",
+    duration: "3:01",
+    type: "track"
+  },
+
+  {
+    title: "Flores Amarillas 2",
+    id: "SXCYEpb0cCg",
+    duration: "2:47",
+    type: "track"
+  },
+
+  {
+    title: "FumaRola",
+    id: "N5tOIn96p6U",
+    duration: "2:09",
+    type: "track"
+  },
+
+  {
+    title: "Real",
+    id: "S8NYySQs5-s",
+    duration: "2:31",
+    type: "track"
+  },
+
+  {
+    title: "La A & la P",
+    credit: "feat. Presión",
+    id: "U-SGcV0SMEs",
+    duration: "4:27",
+    type: "collab"
+  },
+
+  {
+    title: "Perspectiva",
+    id: "euHsIwHohqI",
+    duration: "3:03",
+    type: "track"
+  },
+
+  {
+    title: "Precipitación Original",
+    id: "FlIzDrnIhPs",
+    duration: "2:25",
+    type: "track"
+  },
+
+  {
+    title: "Contenedor",
+    id: "gQf0NARlTvk",
+    duration: "1:50",
+    type: "track"
+  },
+
+  {
+    title: "Ancianos",
+    credit: "Alvertodo & Arrako · 2007",
+    id: "NLVi9zRstiA",
+    duration: "3:18",
+    type: "collab"
+  },
+
+  {
+    title: "Alcánzame",
+    credit: "El Chobbi · Arrako prod. · 2013",
+    id: "t-pdiLH2RGE",
+    duration: "4:06",
+    type: "production"
+  },
+
+  {
+    title: "Te voy a contar",
+    credit: "Coldman Prod. · 2012",
+    id: "YMGEZF_YjXs",
+    duration: "2:50",
+    type: "track"
+  },
+
+  {
+    title: "El Puntazo",
+    credit: "ECDE prod. · 2006",
+    id: "_pIbKN14-cM",
+    duration: "4:43",
+    type: "track"
+  },
+
+  {
+    title: "Sokarra",
+    credit: "prod. beatzbyJC",
+    id: "9JXLERKnLZk",
+    duration: "2:19",
+    type: "track"
+  },
+
+  {
+    title: "Bucle",
+    id: "XyFlIII36GU",
+    duration: "4:29",
+    type: "track"
+  },
+
+  {
+    title: "AlasAlaSalsa",
+    id: "ygsnsKSiwcY",
+    duration: "3:18",
+    type: "track"
+  },
+
+  {
+    title: "Destacar",
+    id: "KmPBZ5NxDJw",
+    duration: "3:16",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Everest",
+    id: null,
+    duration: "",
+    type: "track",
+    distributed: true,
+    platformOnly: true
+  },
+
+  {
+    title: "Termodinámica",
+    id: "I-L3Bf2WqkM",
+    duration: "3:20",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Fuertes",
+    id: "qKMwCZhJz8c",
+    duration: "4:18",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Delantero",
+    id: "lc0oe9UEEN4",
+    duration: "3:07",
+    type: "track",
+    distributed: true
+  },
+
+  {
+    title: "Eclosión",
+    id: "xw8Vc9fJIWQ",
+    duration: "3:11",
+    type: "track"
+  },
+
+  {
+    title: "Lo siento Más",
+    id: "C9WdXYA5tkk",
+    duration: "4:06",
+    type: "track"
+  },
+
+  {
+    title: "Desembucho",
+    credit: "Prod. L.E.N. Beats",
+    id: "YNEErRZat40",
+    duration: "3:57",
+    type: "track"
+  },
+
+  {
+    title: "Resúmen",
+    id: "sPIf7_0oumo",
+    duration: "2:41",
+    type: "track"
+  },
+
+  {
+    title: "Lo siento",
+    id: "7e6T-_IangI",
+    duration: "4:23",
+    type: "track"
+  },
+
+  {
+    title: "Galaxia",
+    credit: "HuecoProds",
+    id: "SvSC1IamWDM",
+    duration: "3:35",
+    type: "track"
+  }
+
+];
+
+
+const grid = document.getElementById("musicGrid");
+
+
+function typeText(item) {
+
+  if (item.type === "production") {
+    return "PRODUCCIÓN";
+  }
+
+  if (item.type === "collab") {
+    return "COLABORACIÓN";
+  }
+
+  return "ARRAKO";
+}
+
+
+function render(filter = "all") {
+
+  grid.innerHTML = "";
+
+  const filtered = music.filter(item => {
+    return filter === "all" || item.type === filter;
+  });
+
+
+  filtered.forEach(item => {
+
+    const card = document.createElement("article");
+
+    card.className = "music-card";
+
+    let visual = "";
+
+
+    if (item.id) {
+
+      visual = `
+        <div class="visual">
+
+          <a
+            href="https://www.youtube.com/watch?v=${item.id}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escuchar ${item.title} en YouTube"
+          >
+
+            <img
+              src="https://i.ytimg.com/vi/${item.id}/hqdefault.jpg"
+              alt="${item.title}"
+              loading="lazy"
+            >
+
+          </a>
+
+          ${item.duration
+            ? `<span class="duration">${item.duration}</span>`
+            : ""
+          }
+
+          ${item.distributed
+            ? `<span class="platform-badge">EN PLATAFORMAS</span>`
+            : ""
+          }
+
+        </div>
+      `;
+
+    } else {
+
+      visual = `
+        <div class="visual">
+
+          <div class="special-visual">
+
+            <strong>EVEREST</strong>
+
+            <span>
+              LANZAMIENTO DIGITAL
+            </span>
+
+          </div>
+
+          <span class="platform-badge">
+            EN PLATAFORMAS
+          </span>
+
+        </div>
+      `;
+    }
+
+
+    card.innerHTML = `
+
+      ${visual}
+
+      <div class="card-info">
+
+        <div class="type">
+          ${typeText(item)}
+        </div>
+
+        <h2>
+          ${item.title}
+        </h2>
+
+        ${item.credit
+          ? `<div class="credit">${item.credit}</div>`
+          : ""
+        }
+
+        <div class="links">
+
+          ${item.id
+            ? `
+              <a
+                class="link-button youtube"
+                href="https://www.youtube.com/watch?v=${item.id}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                YOUTUBE
+              </a>
+            `
+            : ""
+          }
+
+          ${item.distributed
+            ? `
+              <span class="platform-text">
+                STREAMING
+              </span>
+            `
+            : ""
+          }
+
+        </div>
+
+      </div>
+    `;
+
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+render();
+
+
+document.querySelectorAll(".filter").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".filter").forEach(b => {
+      b.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    render(button.dataset.filter);
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
