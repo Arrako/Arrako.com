@@ -1,439 +1,972 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ARRAKO — Sitio oficial</title>
-  <meta name="description" content="Sitio oficial de ARRAKO. Música, letras, vídeos y Peso Muerto.">
+<title>ARRAKO — Sitio oficial</title>
+<meta name="description" content="Sitio oficial de ARRAKO. Música, archivo y Peso Muerto.">
 
-  <style>
-    :root {
-      --black: #050505;
-      --coal: #111111;
-      --anthracite: #2A2A2A;
-      --graphite: #3B3D40;
-      --offwhite: #EAE7E1;
-      --yolk: #F2A61B;
-      --jade: #3FAF6C;
-      --darkjade: #1F5A43;
-    }
+<style>
+:root {
+  --black:#050505;
+  --coal:#101010;
+  --anthracite:#292929;
+  --offwhite:#EAE7E1;
+  --muted:#888;
+  --yolk:#F5A800;
+  --jade:#3FAF6C;
+}
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing:border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior:smooth;
+}
 
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--offwhite);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.5;
-    }
+body {
+  margin:0;
+  background:var(--black);
+  color:var(--offwhite);
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a {
+  color:inherit;
+  text-decoration:none;
+}
 
-    /* CABECERA */
 
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(5, 5, 5, 0.93);
-      border-bottom: 1px solid rgba(234, 231, 225, 0.09);
-      backdrop-filter: blur(12px);
-    }
+/* =========================
+   ENTRADA
+========================= */
 
-    .nav {
-      width: min(1400px, 92%);
-      height: 76px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+#intro {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#030303;
+  transition:opacity .9s ease, visibility .9s ease;
+}
 
-    .brand {
-      font-size: 21px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      color: var(--yolk);
-    }
+#intro.hidden {
+  opacity:0;
+  visibility:hidden;
+}
 
-    nav {
-      display: flex;
-      gap: 28px;
-    }
+.intro-inner {
+  width:min(650px,85%);
+  text-align:center;
+}
 
-    nav a {
-      color: #aaa;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      transition: 0.25s;
-    }
+.intro-logo {
+  display:block;
+  width:min(500px,90%);
+  margin:auto;
+}
 
-    nav a:hover {
-      color: var(--offwhite);
-    }
+.intro-status {
+  margin-top:35px;
+  color:#777;
+  font-size:9px;
+  letter-spacing:.30em;
+}
 
-    nav .album-link {
-      color: var(--yolk);
-    }
+.intro-buttons {
+  display:none;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:28px;
+}
 
-    /* PORTADA */
+.intro-buttons.visible {
+  display:flex;
+}
 
-    .hero {
-      min-height: 100vh;
-      width: min(1400px, 90%);
-      margin: auto;
-      padding: 130px 0 70px;
-      display: grid;
-      grid-template-columns: 1fr 0.85fr;
-      align-items: center;
-      gap: 8vw;
-    }
+.intro-btn {
+  cursor:pointer;
+  padding:12px 18px;
+  background:transparent;
+  border:1px solid #333;
+  color:#aaa;
+  font-size:9px;
+  letter-spacing:.17em;
+}
 
-    .eyebrow {
-      margin-bottom: 18px;
-      color: #777;
-      font-size: 11px;
-      letter-spacing: 0.33em;
-    }
+.intro-btn.sound {
+  border-color:var(--yolk);
+  color:var(--yolk);
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(65px, 9vw, 145px);
-      line-height: 0.83;
-      letter-spacing: -0.06em;
-    }
 
-    .hero h2 {
-      margin: 28px 0 0;
-      color: var(--yolk);
-      font-size: clamp(24px, 3vw, 45px);
-      font-weight: 500;
-      letter-spacing: 0.08em;
-    }
+/* =========================
+   CABECERA
+========================= */
 
-    .hero-copy {
-      max-width: 500px;
-      margin-top: 25px;
-      color: #999;
-      font-size: 15px;
-    }
+header {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(5,5,5,.82);
+  backdrop-filter:blur(14px);
+}
 
-    .actions {
-      display: flex;
-      gap: 13px;
-      flex-wrap: wrap;
-      margin-top: 36px;
-    }
+.nav {
+  width:min(1450px,92%);
+  height:82px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      min-height: 48px;
-      padding: 0 24px;
-      border: 1px solid var(--graphite);
-      color: var(--offwhite);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      transition: 0.25s;
-    }
+.brand img {
+  display:block;
+  width:165px;
+  max-height:52px;
+  object-fit:contain;
+}
 
-    .button.primary {
-      background: var(--yolk);
-      border-color: var(--yolk);
-      color: var(--black);
-      font-weight: bold;
-    }
+nav {
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
 
-    .button:hover {
-      border-color: var(--yolk);
-    }
+nav a {
+  color:#8a8a8a;
+  font-size:10px;
+  letter-spacing:.18em;
+  transition:.2s;
+}
 
-    .button.primary:hover {
-      background: var(--offwhite);
-      border-color: var(--offwhite);
-    }
+nav a:hover {
+  color:var(--yolk);
+}
 
-    /* PORTADA DEL DISCO */
 
-    .cover-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
+/* =========================
+   HERO
+========================= */
 
-    .cover-wrap::before {
-      content: "";
-      position: absolute;
-      width: 70%;
-      height: 70%;
-      top: 15%;
-      background: rgba(63, 175, 108, 0.05);
-      filter: blur(80px);
-      border-radius: 50%;
-    }
+.hero {
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
 
-    .cover {
-      position: relative;
-      width: min(100%, 560px);
-      display: block;
-      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.65);
-    }
+.hero-bg {
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(5,5,5,.97) 0%,
+      rgba(5,5,5,.82) 42%,
+      rgba(5,5,5,.30) 100%
+    ),
+    url("assets/images/a-digital-illustration-of-the-universe-as-a-massiv-rgjCriSVSnqm1r_eJA2Yow-nEt7w9d3THapnEUPDDXNYA.png")
+    center / cover no-repeat;
+  opacity:.55;
+}
 
-    /* ACCESOS */
+.hero-inner {
+  position:relative;
+  z-index:2;
+  width:min(1450px,90%);
+  margin:auto;
+  padding:145px 0 90px;
+  display:grid;
+  grid-template-columns:1fr .85fr;
+  align-items:center;
+  gap:8vw;
+}
 
-    .portals {
-      border-top: 1px solid var(--anthracite);
-      background: var(--coal);
-      padding: 110px 5%;
-    }
+.hero-copy {
+  max-width:660px;
+}
 
-    .portals-inner {
-      width: min(1400px, 100%);
-      margin: auto;
-    }
+.eyebrow {
+  color:var(--jade);
+  opacity:.7;
+  font-size:9px;
+  letter-spacing:.38em;
+  margin-bottom:25px;
+}
 
-    .section-label {
-      margin-bottom: 40px;
-      color: #666;
-      font-size: 10px;
-      letter-spacing: 0.35em;
-    }
+.hero h1 {
+  margin:0;
+  font-size:clamp(60px,8vw,125px);
+  line-height:.87;
+  letter-spacing:-.055em;
+}
 
-    .portal-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--anthracite);
-    }
+.hero h1 span {
+  display:block;
+  color:var(--yolk);
+}
 
-    .portal {
-      min-height: 240px;
-      padding: 36px 28px;
-      border-right: 1px solid var(--anthracite);
-      border-bottom: 1px solid var(--anthracite);
-      transition: 0.25s;
-    }
+.hero-text {
+  max-width:520px;
+  margin-top:30px;
+  color:#929292;
+  font-size:14px;
+  line-height:1.8;
+}
 
-    .portal:first-child {
-      border-left: 1px solid var(--anthracite);
-    }
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:38px;
+}
 
-    .portal:hover {
-      background: #171717;
-    }
+.btn {
+  display:inline-flex;
+  min-height:46px;
+  padding:0 19px;
+  align-items:center;
+  border:1px solid #353535;
+  color:#aaa;
+  font-size:9px;
+  letter-spacing:.17em;
+  transition:.2s;
+}
 
-    .portal-number {
-      color: var(--jade);
-      opacity: 0.55;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-    }
+.btn:hover {
+  border-color:var(--yolk);
+  color:var(--yolk);
+}
 
-    .portal h3 {
-      margin: 70px 0 7px;
-      font-size: 27px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
+.btn.main {
+  border-color:var(--yolk);
+  background:var(--yolk);
+  color:#050505;
+  font-weight:bold;
+}
 
-    .portal p {
-      margin: 0;
-      color: #777;
-      font-size: 13px;
-    }
+.btn.main:hover {
+  background:var(--offwhite);
+  border-color:var(--offwhite);
+}
 
-    /* FOOTER */
 
-    footer {
-      width: min(1400px, 90%);
-      margin: auto;
-      padding: 45px 0;
-      display: flex;
-      justify-content: space-between;
-      color: #555;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-    }
+/* =========================
+   PESO MUERTO
+========================= */
 
-    .footer-mark {
-      color: var(--yolk);
-    }
+.album-object {
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
 
-    /* MÓVIL */
+.album-object::before {
+  content:"";
+  position:absolute;
+  width:75%;
+  height:75%;
+  top:12%;
+  border-radius:50%;
+  background:rgba(63,175,108,.09);
+  filter:blur(90px);
+}
 
-    @media (max-width: 850px) {
-      .nav {
-        height: 65px;
-      }
+.album-cover {
+  position:relative;
+  width:min(100%,560px);
+  box-shadow:0 50px 130px rgba(0,0,0,.75);
+}
 
-      nav {
-        display: none;
-      }
+.album-note {
+  position:absolute;
+  right:0;
+  bottom:-30px;
+  color:#777;
+  font-size:8px;
+  letter-spacing:.28em;
+}
 
-      .hero {
-        min-height: auto;
-        padding-top: 110px;
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
 
-      .hero-text {
-        order: 2;
-      }
+/* =========================
+   MANIFIESTO VISUAL
+========================= */
 
-      .cover-wrap {
-        order: 1;
-      }
+.visual-break {
+  position:relative;
+  min-height:70vh;
+  border-top:1px solid var(--anthracite);
+  border-bottom:1px solid var(--anthracite);
+  overflow:hidden;
+}
 
-      .cover {
-        width: min(100%, 520px);
-      }
+.visual-break img {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.44) saturate(.75);
+}
 
-      .portal-grid {
-        grid-template-columns: 1fr;
-      }
+.visual-break::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,#050505 0%,transparent 30%,transparent 70%,#050505 100%);
+}
 
-      .portal {
-        min-height: 175px;
-        border-left: 1px solid var(--anthracite);
-      }
+.visual-phrase {
+  position:relative;
+  z-index:2;
+  width:min(1200px,86%);
+  min-height:70vh;
+  margin:auto;
+  display:flex;
+  align-items:center;
+}
 
-      .portal h3 {
-        margin-top: 45px;
-      }
+.visual-phrase p {
+  margin:0;
+  max-width:800px;
+  font-size:clamp(30px,5vw,72px);
+  line-height:1.04;
+  letter-spacing:-.04em;
+}
 
-      footer {
-        gap: 20px;
-        flex-direction: column;
-      }
-    }
-  </style>
+
+/* =========================
+   ACCESOS
+========================= */
+
+.archive {
+  width:min(1450px,90%);
+  margin:auto;
+  padding:120px 0;
+}
+
+.archive-label {
+  margin-bottom:35px;
+  color:#666;
+  font-size:9px;
+  letter-spacing:.33em;
+}
+
+.archive-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--anthracite);
+  border-left:1px solid var(--anthracite);
+}
+
+.portal {
+  min-height:270px;
+  padding:35px;
+  border-right:1px solid var(--anthracite);
+  border-bottom:1px solid var(--anthracite);
+  transition:.25s;
+}
+
+.portal:hover {
+  background:#0e0e0e;
+}
+
+.portal-number {
+  color:var(--jade);
+  opacity:.55;
+  font-size:9px;
+}
+
+.portal h2 {
+  margin:95px 0 8px;
+  font-size:35px;
+  font-weight:500;
+}
+
+.portal p {
+  color:#777;
+  margin:0;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.portal.live h2 {
+  color:var(--offwhite);
+}
+
+.portal.live:hover h2 {
+  color:var(--yolk);
+}
+
+
+/* =========================
+   LOGO / FOOTER
+========================= */
+
+.signature {
+  padding:110px 0 80px;
+  text-align:center;
+}
+
+.signature img {
+  width:min(230px,55vw);
+  opacity:.78;
+}
+
+footer {
+  border-top:1px solid var(--anthracite);
+}
+
+.footer {
+  width:min(1450px,90%);
+  min-height:100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:#505050;
+  font-size:9px;
+  letter-spacing:.16em;
+}
+
+
+/* =========================
+   SONIDO
+========================= */
+
+#soundControl {
+  position:fixed;
+  z-index:2000;
+  right:20px;
+  bottom:20px;
+  cursor:pointer;
+  min-width:105px;
+  height:36px;
+  padding:0 12px;
+  border:1px solid #303030;
+  background:rgba(5,5,5,.88);
+  color:#777;
+  font-size:8px;
+  letter-spacing:.14em;
+  backdrop-filter:blur(10px);
+}
+
+#soundControl.on {
+  color:var(--jade);
+  border-color:rgba(63,175,108,.45);
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media(max-width:800px) {
+
+  .nav {
+    height:68px;
+  }
+
+  .brand img {
+    width:130px;
+  }
+
+  nav {
+    gap:15px;
+  }
+
+  nav a:not(:first-child) {
+    display:none;
+  }
+
+  .hero-inner {
+    padding-top:110px;
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+
+  .hero-copy {
+    order:2;
+  }
+
+  .album-object {
+    order:1;
+  }
+
+  .album-cover {
+    width:min(100%,520px);
+  }
+
+  .archive-grid {
+    grid-template-columns:1fr;
+  }
+
+  .portal {
+    min-height:210px;
+  }
+
+  .portal h2 {
+    margin-top:65px;
+  }
+
+  .footer {
+    align-items:flex-start;
+    justify-content:center;
+    flex-direction:column;
+    gap:10px;
+    padding:30px 0;
+  }
+}
+</style>
 </head>
+
 
 <body>
 
+
+<!-- AUDIO -->
+
+<audio
+  id="backgroundMusic"
+  loop
+  preload="auto"
+  src="assets/audio/background/LA MADRE DEL CORDERO UNO.mp3">
+</audio>
+
+
+<!-- ENTRADA -->
+
+<div id="intro">
+
+  <div class="intro-inner">
+
+    <img
+      class="intro-logo"
+      src="assets/images/ChatGPT Image 23 ago 2026, 16_45_02.png"
+      alt="ARRAKO"
+    >
+
+    <div class="intro-status" id="introStatus">
+      ARRAKO.COM
+    </div>
+
+    <div class="intro-buttons" id="introButtons">
+
+      <button class="intro-btn sound" id="enterSound">
+        ENTRAR CON SONIDO
+      </button>
+
+      <button class="intro-btn" id="enterSilent">
+        ENTRAR EN SILENCIO
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- CABECERA -->
+
 <header>
+
   <div class="nav">
 
-    <a class="brand" href="/">ARRAKO</a>
+    <a class="brand" href="/">
+      <img
+        src="assets/images/ChatGPT Image 23 ago 2026, 16_45_02.png"
+        alt="ARRAKO"
+      >
+    </a>
 
     <nav>
-      <a href="/musica/">MÚSICA</a>
-      <a href="/letras/">LETRAS</a>
-      <a href="/videos/">VÍDEOS</a>
-      <a href="/arrako/">ARRAKO</a>
-      <a class="album-link" href="/peso-muerto/">PESO MUERTO</a>
+
+      <a href="/musica/">
+        MÚSICA
+      </a>
+
+      <a
+        href="https://www.youtube.com/@Arrakoo/videos"
+        target="_blank"
+        rel="noopener noreferrer">
+        YOUTUBE
+      </a>
+
     </nav>
 
   </div>
+
 </header>
 
 
+<!-- HERO -->
+
 <main>
 
-  <section class="hero">
+<section class="hero">
 
-    <div class="hero-text">
+  <div class="hero-bg"></div>
+
+  <div class="hero-inner">
+
+    <div class="hero-copy">
 
       <div class="eyebrow">
         ARRAKO · SITIO OFICIAL
       </div>
 
-      <h1>ARRAKO</h1>
+      <h1>
+        PRÓXIMO
+        <span>PESO MUERTO</span>
+      </h1>
 
-      <h2>PESO MUERTO</h2>
-
-      <p class="hero-copy">
-        Próximo álbum.
-        Música, letras, imágenes y material oficial.
+      <p class="hero-text">
+        Música, archivo y obra de ARRAKO.
+        Peso Muerto permanece en construcción.
       </p>
 
-      <div class="actions">
-        <a class="button primary" href="/peso-muerto/">
-          PESO MUERTO
+      <div class="hero-actions">
+
+        <a class="btn main" href="/musica/">
+          ENTRAR EN MÚSICA
         </a>
 
-        <a class="button" href="/musica/">
-          MÚSICA
+        <a
+          class="btn"
+          href="https://www.youtube.com/@Arrakoo/videos"
+          target="_blank"
+          rel="noopener noreferrer">
+          CANAL OFICIAL
         </a>
+
       </div>
 
     </div>
 
 
-    <div class="cover-wrap">
+    <div class="album-object">
 
       <img
-        class="cover"
-        src="ChatGPT%20Image%2023%20ago%202026,%2021_03_13.png"
+        class="album-cover"
+        src="ChatGPT Image 23 ago 2026, 21_03_13.png"
         alt="Peso Muerto — ARRAKO"
       >
 
-    </div>
-
-  </section>
-
-
-  <section class="portals">
-
-    <div class="portals-inner">
-
-      <div class="section-label">
-        ARCHIVO ARRAKO
-      </div>
-
-      <div class="portal-grid">
-
-        <a class="portal" href="/musica/">
-          <div class="portal-number">01</div>
-          <h3>MÚSICA</h3>
-          <p>Canciones, discos y escucha.</p>
-        </a>
-
-        <a class="portal" href="/letras/">
-          <div class="portal-number">02</div>
-          <h3>LETRAS</h3>
-          <p>Archivo lírico de ARRAKO.</p>
-        </a>
-
-        <a class="portal" href="/videos/">
-          <div class="portal-number">03</div>
-          <h3>VÍDEOS</h3>
-          <p>Vídeos y piezas oficiales.</p>
-        </a>
-
+      <div class="album-note">
+        PRÓXIMO ÁLBUM
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
+
+
+<!-- IMAGEN / COSMOGONÍA -->
+
+<section class="visual-break">
+
+  <img
+    src="assets/images/a-conceptual-image-of-the-universe-as-a-machine-of-KS6sAGxcSXW6qi-wzdN4lg-nEt7w9d3THapnEUPDDXNYA.png"
+    alt=""
+  >
+
+  <div class="visual-phrase">
+    <p>
+      Música, materia, memoria y ruido.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- ARCHIVO -->
+
+<section class="archive">
+
+  <div class="archive-label">
+    ARRAKO.COM
+  </div>
+
+  <div class="archive-grid">
+
+    <a class="portal live" href="/musica/">
+
+      <div class="portal-number">
+        01
+      </div>
+
+      <h2>
+        MÚSICA
+      </h2>
+
+      <p>
+        Trabajos, canciones, colaboraciones y producción.
+      </p>
+
+    </a>
+
+
+    <div class="portal">
+
+      <div class="portal-number">
+        02
+      </div>
+
+      <h2>
+        LETRAS
+      </h2>
+
+      <p>
+        Archivo lírico · próximamente.
+      </p>
+
+    </div>
+
+
+    <div class="portal">
+
+      <div class="portal-number">
+        03
+      </div>
+
+      <h2>
+        VÍDEOS
+      </h2>
+
+      <p>
+        Archivo audiovisual · próximamente.
+      </p>
+
+    </div>
+
+
+    <div class="portal">
+
+      <div class="portal-number">
+        04
+      </div>
+
+      <h2>
+        ARRAKO
+      </h2>
+
+      <p>
+        Archivo, trayectoria y obra · próximamente.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LOGO -->
+
+<section class="signature">
+
+  <img
+    src="assets/images/ChatGPT Image 23 ago 2026, 16_53_48.png"
+    alt="Logotipo ARRAKO"
+  >
+
+</section>
 
 </main>
 
 
 <footer>
 
-  <span class="footer-mark">
-    ARRAKO
-  </span>
+  <div class="footer">
 
-  <span>
-    © 2026 ARRAKO
-  </span>
+    <span>
+      ARRAKO
+    </span>
+
+    <span>
+      © 2026 · ARRAKO.COM
+    </span>
+
+  </div>
 
 </footer>
+
+
+<button id="soundControl">
+  SONIDO
+</button>
+
+
+<script>
+
+const audio = document.getElementById("backgroundMusic");
+const intro = document.getElementById("intro");
+const introButtons = document.getElementById("introButtons");
+const introStatus = document.getElementById("introStatus");
+const enterSound = document.getElementById("enterSound");
+const enterSilent = document.getElementById("enterSilent");
+const soundControl = document.getElementById("soundControl");
+
+audio.volume = 0.16;
+
+let soundOn = false;
+
+
+function closeIntro() {
+  intro.classList.add("hidden");
+
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 950);
+}
+
+
+function updateSoundButton() {
+
+  if(soundOn && !audio.paused) {
+
+    soundControl.textContent = "SONIDO · ON";
+    soundControl.classList.add("on");
+
+  } else {
+
+    soundControl.textContent = "SONIDO · OFF";
+    soundControl.classList.remove("on");
+
+  }
+
+}
+
+
+async function startSound() {
+
+  try {
+
+    await audio.play();
+
+    soundOn = true;
+
+    localStorage.setItem("arrakoSound", "on");
+
+    updateSoundButton();
+
+    return true;
+
+  } catch(e) {
+
+    soundOn = false;
+
+    updateSoundButton();
+
+    return false;
+
+  }
+
+}
+
+
+/* INTENTO AUTOMÁTICO */
+
+window.addEventListener("load", async () => {
+
+  const preference = localStorage.getItem("arrakoSound");
+
+  if(preference === "off") {
+
+    introStatus.textContent = "ARRAKO.COM";
+
+    introButtons.classList.add("visible");
+
+    return;
+
+  }
+
+
+  const success = await startSound();
+
+  if(success) {
+
+    setTimeout(closeIntro, 1300);
+
+  } else {
+
+    introStatus.textContent = "ACTIVAR EXPERIENCIA";
+
+    introButtons.classList.add("visible");
+
+  }
+
+});
+
+
+/* ENTRAR CON AUDIO */
+
+enterSound.addEventListener("click", async () => {
+
+  await startSound();
+
+  closeIntro();
+
+});
+
+
+/* ENTRAR SIN AUDIO */
+
+enterSilent.addEventListener("click", () => {
+
+  audio.pause();
+
+  soundOn = false;
+
+  localStorage.setItem("arrakoSound", "off");
+
+  updateSoundButton();
+
+  closeIntro();
+
+});
+
+
+/* CONTROL FIJO */
+
+soundControl.addEventListener("click", async () => {
+
+  if(audio.paused) {
+
+    await startSound();
+
+  } else {
+
+    audio.pause();
+
+    soundOn = false;
+
+    localStorage.setItem("arrakoSound", "off");
+
+    updateSoundButton();
+
+  }
+
+});
+
+updateSoundButton();
+
+</script>
 
 </body>
 </html>
