@@ -3,281 +3,1774 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ARRAKO</title>
+<meta name="description" content="ARRAKO — música, letras, producción e imagen. PESO MUERTO · 23.10.2026.">
+<meta name="theme-color" content="#040404">
+<meta property="og:title" content="ARRAKO — PESO MUERTO">
+<meta property="og:description" content="Nuevo álbum · 23.10.2026">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arrako.com/">
+<meta property="og:image" content="https://arrako.com/assets/images/entrada-monolito-peso-muerto.png">
+<link rel="canonical" href="https://arrako.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>ARRAKO — PESO MUERTO</title>
+
 <style>
 :root{
-  --black:#040404;--white:#EAE7E1;--yellow:#F5A800;--jade:#3FAF6C;
-  --line:rgba(255,255,255,.08);--muted:#979797;
+  --black:#040404;
+  --white:#EAE7E1;
+  --amber:#B27A1A;
+  --amber-hi:#C99533;
+  --amber-dark:#6E4911;
+  --jade:#3FAF6C;
+  --line:rgba(255,255,255,.085);
+  --max:1440px;
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
-  margin:0;background:#040404;color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;overflow-x:hidden;
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:"Manrope",Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
 }
-body.locked{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit}
+
+body.locked{overflow:hidden}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{font:inherit}
+
+img{max-width:100%}
+
+::selection{
+  background:var(--amber);
+  color:#050505;
+}
+
 body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
   background:
-    radial-gradient(circle at 17% 16%,rgba(245,168,0,.055),transparent 23%),
-    radial-gradient(circle at 84% 28%,rgba(63,175,108,.045),transparent 20%),
-    repeating-linear-gradient(90deg,transparent 0 139px,rgba(255,255,255,.012) 139px 140px);
+    radial-gradient(circle at 15% 15%,rgba(178,122,26,.035),transparent 26%),
+    radial-gradient(circle at 82% 28%,rgba(63,175,108,.025),transparent 24%),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 159px,
+      rgba(255,255,255,.008) 159px 160px
+    );
 }
-.frame{position:fixed;inset:14px;z-index:500;pointer-events:none;border:1px solid rgba(245,168,0,.16)}
-.frame:before,.frame:after{content:"";position:absolute;width:92px;height:92px}
-.frame:before{left:-1px;top:-1px;border-left:2px solid rgba(245,168,0,.5);border-top:2px solid rgba(245,168,0,.5)}
-.frame:after{right:-1px;bottom:-1px;border-right:2px solid rgba(63,175,108,.4);border-bottom:2px solid rgba(63,175,108,.4)}
-.wrap{position:relative;z-index:1}
 
-/* entrada */
+.wrap{
+  position:relative;
+  z-index:1;
+}
+
+a:focus-visible,
+button:focus-visible{
+  outline:1px solid var(--amber-hi);
+  outline-offset:4px;
+}
+
+/* ENTRADA */
+
 #gate{
-  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;cursor:pointer;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  align-items:center;
+  cursor:pointer;
+  overflow:hidden;
+
   background:
-    linear-gradient(rgba(0,0,0,.64),rgba(0,0,0,.88)),
-    url("/assets/images/a-dark-cosmic-atmosphere-with-a-solitary_qAhgkHCbRf2nsT_3x7roTA_xLXWxL4FQ5e5mIGY7c9dgQ.png") center/cover no-repeat;
-  transition:.7s ease;
+    #030303
+    url("/assets/images/entrada-monolito-peso-muerto.png")
+    72% center/cover no-repeat;
+
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
 }
-#gate.closed{opacity:0;visibility:hidden;pointer-events:none}
-.gate-inner{width:min(900px,90vw);text-align:center}
-.gate-inner img{display:block;width:100%;max-width:840px;margin:auto}
-#enter{margin-top:16px;padding:15px 32px;background:rgba(0,0,0,.2);color:var(--white);border:1px solid rgba(245,168,0,.65);cursor:pointer;font-size:10px;font-weight:700;letter-spacing:.34em}
-#enter:hover{background:var(--yellow);color:#050505}
 
-/* header */
-header{position:sticky;top:0;z-index:100;height:72px;background:rgba(5,5,5,.82);border-bottom:1px solid var(--line);backdrop-filter:blur(15px)}
-.head{height:100%;width:min(1450px,94%);margin:auto;display:flex;align-items:center;justify-content:space-between}
-.brand{width:205px;height:52px;background:url("/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png") center/contain no-repeat}
-nav{display:flex;gap:25px;align-items:center}
-nav a{font-size:9px;font-weight:700;letter-spacing:.2em;color:#a3a3a3}
-nav a:hover{color:var(--yellow)}
+#gate:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
 
-/* hero */
-.hero{position:relative;min-height:68vh;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero-split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
-.hero-pane{position:relative;overflow:hidden;background:#080808}
-.hero-pane img{position:absolute;inset:0;width:100%;height:100%}
-.hero-pane.left img{object-fit:cover;filter:brightness(.42) saturate(.82)}
-.hero-pane.right{background:
-  linear-gradient(180deg,rgba(12,12,12,.22),rgba(4,4,4,.42)),
-  radial-gradient(circle at 50% 45%,rgba(245,168,0,.06),transparent 40%),
-  #090909}
-.hero-pane.right img{object-fit:contain;object-position:center center;padding:26px 34px 26px 20px;filter:brightness(.82) saturate(.92) contrast(1.01)}
-.hero-split:before{content:"";position:absolute;inset:0;background:
-  linear-gradient(90deg,rgba(4,4,4,.76) 0%,rgba(4,4,4,.58) 26%,rgba(4,4,4,.50) 50%,rgba(4,4,4,.58) 74%,rgba(4,4,4,.72) 100%),
-  linear-gradient(0deg,#040404 0%,transparent 24%,transparent 82%,rgba(4,4,4,.38) 100%);
-  z-index:2;pointer-events:none}
-.hero-split:after{content:"";position:absolute;left:50%;top:9%;bottom:9%;width:1px;background:linear-gradient(180deg,transparent,rgba(245,168,0,.22),rgba(255,255,255,.08),transparent);z-index:3}
-.hero-inner{position:relative;z-index:4;width:min(1450px,94%);min-height:68vh;margin:auto;display:flex;align-items:center;padding:56px 0 72px}
-.hero-copy{max-width:640px;padding-left:14px}
-.hero-copy h1{font-size:clamp(54px,7.2vw,108px);line-height:.86;letter-spacing:-.06em;margin:0}
-.hero-copy h1 span{color:var(--yellow)}
-.hero-copy p{max-width:590px;color:#aaa;font-size:13px;line-height:1.85;margin:25px 0 0}
-.hero-axis{margin-top:26px;color:#a8a8a8;font-size:10px;font-weight:700;letter-spacing:.28em}
-.arrako-seal{position:absolute;z-index:5;right:4.4%;top:96px;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,rgba(12,12,12,.96),rgba(4,4,4,.98));border:1.5px solid rgba(245,168,0,.55);box-shadow:0 16px 34px rgba(0,0,0,.48),0 0 0 7px rgba(4,4,4,.78),0 0 0 8px rgba(255,255,255,.035);backdrop-filter:blur(8px);transform:none}
-.arrako-seal:before{content:"";position:absolute;inset:8px;border:1px solid rgba(245,168,0,.28);border-radius:50%}
-.arrako-seal:after{content:"";position:absolute;inset:17px;border:1px solid rgba(255,255,255,.06);border-radius:50%}
-.arrako-seal img{position:relative;z-index:2;width:82px;height:82px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(245,168,0,.10))}
-
-/* puertas */
-.portals{width:min(1450px,94%);margin:auto;padding:34px 0 64px}
-.portal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.portal{position:relative;min-height:280px;overflow:hidden;border:1px solid rgba(255,255,255,.07);cursor:pointer}
-.portal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.44) saturate(.75);transition:.6s}
-.portal:hover img{transform:scale(1.025);filter:brightness(.58) saturate(.86)}
-.portal:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,4,4,.94),rgba(4,4,4,.28) 68%)}
-.portal-copy{position:absolute;z-index:2;left:28px;right:28px;bottom:25px}
-.portal-copy small{font-size:8px;letter-spacing:.3em;color:var(--jade)}
-.portal-copy h2{font-size:clamp(34px,4vw,58px);line-height:.9;letter-spacing:-.045em;margin:8px 0 0}
-.portal-copy p{font-size:11px;line-height:1.6;color:#aaa;margin:10px 0 0}
-
-/* peso muerto una sola vez */
-.peso{width:min(1450px,94%);margin:0 auto 68px;display:grid;grid-template-columns:.85fr 1.4fr;min-height:315px;border:1px solid rgba(255,255,255,.07);overflow:hidden;background:#080808}
-.peso-copy{padding:42px;align-self:center}
-.peso-copy small{font-size:8px;font-weight:700;letter-spacing:.3em;color:var(--yellow)}
-.peso-copy h2{font-size:clamp(44px,6vw,84px);line-height:.85;letter-spacing:-.055em;margin:14px 0 0}
-.peso-copy p{font-size:12px;line-height:1.75;color:#929292;max-width:430px}
-.peso-art{background:
-  linear-gradient(90deg,#080808 0%,rgba(8,8,8,.36) 36%,rgba(8,8,8,.1) 100%),
-  url("/assets/images/high-level-description-an-ultra-realisti_DlKC9Bs_WGeN7HK4wGKUwg_SvTU0s_uRKCVXfKqS_EgJw.png") center/cover no-repeat}
-
-/* modales útiles */
-.modal{position:fixed;inset:0;z-index:5000;display:none;place-items:center;padding:25px;background:rgba(0,0,0,.94)}
-.modal.open{display:grid}
-.card{width:min(1120px,94vw);max-height:86vh;overflow:auto;background:#090909;border:1px solid #292929;padding:34px}
-.card h2{font-size:clamp(40px,6vw,76px);letter-spacing:-.05em;margin:0 0 18px}
-.card p{font-size:12px;line-height:1.75;color:#9a9a9a}
-.lyric-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:22px}
-.lyric-item{border:1px solid rgba(255,255,255,.07);padding:15px;color:#b9b9b9;font-size:11px}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
-.gallery figure{margin:0;min-height:240px;display:grid;place-items:center;background:#030303;border:1px solid rgba(255,255,255,.07);padding:10px}
-.gallery img{display:block;width:100%;height:auto;max-height:62vh;object-fit:contain;filter:brightness(.86) saturate(.92)}
-.close{margin-top:22px;padding:11px 16px;border:1px solid #333;background:transparent;color:#bbb;cursor:pointer;font-size:9px;letter-spacing:.18em}
-
-footer{border-top:1px solid var(--line)}
-.foot{width:min(1450px,94%);min-height:90px;margin:auto;display:flex;justify-content:space-between;align-items:center;color:#5e5e5e;font-size:8px;letter-spacing:.18em}
-#audioButton{position:fixed;right:28px;bottom:28px;z-index:600;height:38px;padding:0 13px;background:rgba(5,5,5,.9);border:1px solid #2b2b2b;color:#777;cursor:pointer;font-size:8px;font-weight:700;letter-spacing:.12em}
-#audioButton.on{color:var(--jade);border-color:rgba(63,175,108,.4)}
-
-@media(max-width:900px){
-  .hero-split{grid-template-columns:1fr}
-  .hero-split:after{display:none}
-  .hero-pane{min-height:280px}
-  .hero-pane.right img{padding:24px}
-  .hero-inner{min-height:auto;padding:34px 0 54px}
-  .peso{grid-template-columns:1fr}
-  .peso-art{min-height:250px}
-  .arrako-seal{width:96px;height:96px;right:18px;top:84px}
-  .arrako-seal img{width:68px;height:68px}
+  background:
+    linear-gradient(
+      90deg,
+      #030303 0%,
+      #030303 38%,
+      rgba(3,3,3,.96) 43%,
+      rgba(3,3,3,.74) 49%,
+      rgba(3,3,3,.28) 61%,
+      rgba(3,3,3,.13) 75%,
+      rgba(3,3,3,.42) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3,3,3,.66),
+      transparent 34%,
+      rgba(3,3,3,.2)
+    );
 }
-@media(max-width:700px){
-  .frame{display:none}
-  .head{width:92%}
-  .brand{width:150px}
-  .head nav a:nth-child(n+3){display:none}
-  .hero-copy{padding-left:0}
-  .hero-copy h1{font-size:46px}
-  .portal-grid{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .lyric-list{grid-template-columns:1fr}
+
+#gate:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.18;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.016) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,.025) 0 1px,
+      transparent 1px 5px
+    );
 }
+
+#gate.closed{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.gate-inner{
+  position:relative;
+  z-index:3;
+  width:min(660px,42vw);
+  margin-left:7vw;
+  text-align:center;
+}
+
+.gate-logo{
+  display:block;
+  width:100%;
+  max-width:620px;
+  margin:auto;
+
+  opacity:.92;
+
+  filter:
+    saturate(.48)
+    brightness(.72)
+    contrast(1.08)
+    sepia(.12);
+}
+
+.gate-release{
+  margin:22px 0 0;
+  color:#8f8c85;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.34em;
+}
+
+#enter{
+  margin-top:22px;
+  padding:14px 30px;
+
+  border:1px solid rgba(178,122,26,.62);
+  background:rgba(0,0,0,.28);
+  color:#D8D4CB;
+
+  cursor:pointer;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.34em;
+
+  transition:.25s ease;
+}
+
+#enter:hover{
+  background:var(--amber);
+  border-color:var(--amber);
+  color:#050505;
+}
+
+/* CABECERA */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+
+  height:70px;
+
+  border-bottom:1px solid var(--line);
+  background:rgba(4,4,4,.78);
+
+  backdrop-filter:blur(18px);
+}
+
+.head{
+  width:min(var(--max),94%);
+  height:100%;
+  margin:auto;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:block;
+
+  width:184px;
+  height:42px;
+
+  background:
+    url("/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png")
+    center/contain no-repeat;
+
+  opacity:.88;
+
+  filter:
+    saturate(.46)
+    brightness(.68)
+    contrast(1.12)
+    sepia(.10);
+
+  transition:.25s ease;
+}
+
+.brand:hover{
+  opacity:1;
+
+  filter:
+    saturate(.56)
+    brightness(.76)
+    contrast(1.12)
+    sepia(.08);
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+nav a{
+  color:#8F8F8F;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.20em;
+
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--amber-hi);
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+
+  min-height:82vh;
+
+  display:flex;
+  align-items:flex-end;
+
+  overflow:hidden;
+
+  border-bottom:1px solid var(--line);
+  background:#050505;
+}
+
+.hero-visual{
+  position:absolute;
+  inset:0;
+}
+
+.hero-visual img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:68% center;
+
+  filter:
+    brightness(.68)
+    saturate(.62)
+    contrast(1.06);
+
+  transform:scale(1.008);
+}
+
+.hero-visual:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #040404 0%,
+      rgba(4,4,4,.93) 20%,
+      rgba(4,4,4,.65) 42%,
+      rgba(4,4,4,.16) 69%,
+      rgba(4,4,4,.24) 100%
+    ),
+    linear-gradient(
+      0deg,
+      #040404 0%,
+      rgba(4,4,4,.58) 14%,
+      transparent 48%,
+      rgba(4,4,4,.18) 100%
+    );
+}
+
+.hero-inner{
+  position:relative;
+  z-index:3;
+
+  width:min(var(--max),94%);
+  margin:auto;
+
+  padding:110px 0 82px;
+}
+
+.hero-copy{
+  max-width:760px;
+}
+
+.eyebrow{
+  margin:0 0 18px;
+
+  color:var(--amber-hi);
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.34em;
+}
+
+.hero h1{
+  margin:0;
+
+  max-width:700px;
+
+  font-family:"Inter Tight",Arial,sans-serif;
+  font-size:clamp(68px,9.4vw,142px);
+  font-weight:800;
+
+  line-height:.79;
+  letter-spacing:-.065em;
+}
+
+.hero h1 span{
+  display:block;
+  color:#BDB9B1;
+  font-weight:600;
+}
+
+.hero-meta{
+  margin-top:28px;
+
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:10px 22px;
+
+  color:#A4A19B;
+
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.22em;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+
+  margin-top:30px;
+}
+
+.btn{
+  min-width:150px;
+
+  padding:13px 17px;
+
+  border:1px solid rgba(255,255,255,.14);
+
+  background:rgba(4,4,4,.42);
+  color:#C8C5BE;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.2em;
+
+  text-align:center;
+
+  transition:.25s ease;
+}
+
+.btn:hover{
+  border-color:rgba(178,122,26,.65);
+
+  color:var(--amber-hi);
+
+  background:rgba(178,122,26,.05);
+}
+
+.btn.primary{
+  border-color:rgba(178,122,26,.55);
+  color:#D6B36B;
+}
+
+/* PESO MUERTO */
+
+.album{
+  width:min(var(--max),94%);
+  margin:0 auto;
+  padding:92px 0;
+}
+
+.album-grid{
+  display:grid;
+
+  grid-template-columns:.78fr 1.22fr;
+
+  min-height:480px;
+
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.album-copy{
+  padding:58px 50px 58px 0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.section-kicker{
+  color:var(--jade);
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.32em;
+}
+
+.album h2{
+  margin:14px 0 0;
+
+  font-family:"Inter Tight",Arial,sans-serif;
+  font-size:clamp(62px,8vw,116px);
+  font-weight:800;
+
+  line-height:.80;
+  letter-spacing:-.06em;
+}
+
+.album-date{
+  margin-top:26px;
+
+  color:#D0CCC3;
+
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.28em;
+}
+
+.album-copy p{
+  max-width:500px;
+
+  margin:27px 0 0;
+
+  color:#8E8D88;
+
+  font-size:12px;
+  line-height:1.85;
+}
+
+.singles{
+  margin-top:27px;
+
+  display:grid;
+  gap:8px;
+}
+
+.single{
+  display:flex;
+  justify-content:space-between;
+
+  gap:18px;
+
+  padding:10px 0;
+
+  border-top:1px solid rgba(255,255,255,.06);
+
+  color:#A9A69F;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.14em;
+}
+
+.single strong{
+  color:#C6A05B;
+  font-weight:700;
+}
+
+.album-visual{
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:480px;
+
+  background:#070707;
+}
+
+.album-visual img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+  object-position:72% center;
+
+  filter:
+    brightness(.76)
+    saturate(.68)
+    contrast(1.06);
+
+  transform:scale(1.06);
+}
+
+.album-visual:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #040404 0%,
+      rgba(4,4,4,.65) 18%,
+      transparent 46%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4,4,4,.45),
+      transparent 40%
+    );
+}
+
+/* ARCHIVO */
+
+.access{
+  width:min(var(--max),94%);
+
+  margin:auto;
+
+  padding:0 0 86px;
+}
+
+.access-title{
+  margin:0 0 28px;
+
+  color:#73726E;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.30em;
+}
+
+.access-grid{
+  display:grid;
+
+  grid-template-columns:1.4fr .8fr .8fr;
+
+  gap:12px;
+}
+
+.access-card{
+  position:relative;
+
+  min-height:330px;
+
+  overflow:hidden;
+
+  border:1px solid var(--line);
+
+  background:#080808;
+}
+
+.access-card img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+    grayscale(.6)
+    brightness(.42)
+    saturate(.55)
+    contrast(1.04);
+
+  transition:.55s ease;
+}
+
+.access-card:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      0deg,
+      rgba(4,4,4,.97),
+      rgba(4,4,4,.16) 72%
+    );
+}
+
+.access-card:hover img{
+  transform:scale(1.02);
+
+  filter:
+    grayscale(.35)
+    brightness(.53)
+    saturate(.65)
+    contrast(1.04);
+}
+
+.access-copy{
+  position:absolute;
+  z-index:2;
+
+  left:25px;
+  right:25px;
+  bottom:24px;
+}
+
+.access-copy small{
+  color:var(--jade);
+
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.28em;
+}
+
+.access-copy h3{
+  margin:8px 0 0;
+
+  font-family:"Inter Tight",Arial,sans-serif;
+  font-size:clamp(36px,4vw,61px);
+
+  line-height:.9;
+  letter-spacing:-.045em;
+}
+
+.access-copy p{
+  max-width:360px;
+
+  margin:10px 0 0;
+
+  color:#969590;
+
+  font-size:10px;
+  line-height:1.7;
+}
+
+/* ARRAKO */
+
+.about{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.about-inner{
+  width:min(var(--max),94%);
+
+  margin:auto;
+
+  padding:92px 0 96px;
+
+  display:grid;
+
+  grid-template-columns:.5fr 1fr;
+
+  gap:70px;
+}
+
+.about-label{
+  color:var(--amber-hi);
+
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.32em;
+}
+
+.about-copy h2{
+  margin:0;
+
+  font-family:"Inter Tight",Arial,sans-serif;
+  font-size:clamp(50px,7vw,102px);
+
+  line-height:.84;
+  letter-spacing:-.055em;
+}
+
+.about-copy p{
+  max-width:720px;
+
+  margin:28px 0 0;
+
+  color:#999792;
+
+  font-size:13px;
+  line-height:1.95;
+}
+
+.about-copy .axis{
+  margin-top:27px;
+
+  color:#686762;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.27em;
+}
+
+/* LETRAS */
+
+.modal{
+  position:fixed;
+  inset:0;
+
+  z-index:5000;
+
+  display:none;
+  place-items:center;
+
+  padding:25px;
+
+  background:rgba(0,0,0,.95);
+}
+
+.modal.open{
+  display:grid;
+}
+
+.card{
+  width:min(960px,94vw);
+
+  max-height:86vh;
+
+  overflow:auto;
+
+  padding:38px;
+
+  border:1px solid #292929;
+
+  background:#090909;
+}
+
+.card h2{
+  margin:0 0 15px;
+
+  font-family:"Inter Tight",Arial,sans-serif;
+  font-size:clamp(46px,7vw,82px);
+
+  line-height:.9;
+  letter-spacing:-.05em;
+}
+
+.card p{
+  max-width:700px;
+
+  color:#999792;
+
+  font-size:12px;
+  line-height:1.8;
+}
+
+.lyric-list{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:7px;
+
+  margin-top:24px;
+}
+
+.lyric-item{
+  padding:14px 15px;
+
+  border:1px solid rgba(255,255,255,.07);
+
+  color:#B3B0A9;
+
+  font-size:10px;
+  letter-spacing:.04em;
+}
+
+.close{
+  margin-top:24px;
+
+  padding:11px 16px;
+
+  border:1px solid #333;
+
+  background:transparent;
+  color:#aaa;
+
+  cursor:pointer;
+
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.18em;
+}
+
+.close:hover{
+  border-color:var(--amber-dark);
+  color:var(--amber-hi);
+}
+
+/* PIE */
+
+footer{
+  width:min(var(--max),94%);
+  margin:auto;
+}
+
+.foot{
+  min-height:96px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:20px;
+
+  color:#5C5B57;
+
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.18em;
+}
+
+#audioButton{
+  position:fixed;
+
+  right:27px;
+  bottom:27px;
+
+  z-index:600;
+
+  height:38px;
+
+  padding:0 13px;
+
+  border:1px solid #2B2B2B;
+
+  background:rgba(5,5,5,.9);
+  color:#777;
+
+  cursor:pointer;
+
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
+
+  backdrop-filter:blur(8px);
+}
+
+#audioButton.on{
+  color:#76B58F;
+  border-color:rgba(63,175,108,.34);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+
+  .album-grid{
+    grid-template-columns:1fr;
+  }
+
+  .album-copy{
+    padding:48px 0;
+  }
+
+  .album-visual{
+    min-height:380px;
+  }
+
+  .access-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .access-card:first-child{
+    grid-column:1/-1;
+  }
+
+  .about-inner{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+}
+
+@media(max-width:720px){
+
+  header{
+    height:auto;
+  }
+
+  .head{
+    min-height:90px;
+
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+
+    gap:8px;
+
+    padding:9px 0;
+  }
+
+  .brand{
+    width:145px;
+    height:28px;
+  }
+
+  nav{
+    width:100%;
+    gap:0;
+    justify-content:space-between;
+  }
+
+  nav a{
+    font-size:8px;
+    letter-spacing:.12em;
+  }
+
+  #gate{
+    background-position:72% center;
+  }
+
+  #gate:before{
+    background:
+      linear-gradient(
+        0deg,
+        #030303 0%,
+        rgba(3,3,3,.96) 24%,
+        rgba(3,3,3,.48) 55%,
+        rgba(3,3,3,.30) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(3,3,3,.42),
+        rgba(3,3,3,.12)
+      );
+  }
+
+  .gate-inner{
+    width:88vw;
+
+    margin:0 auto;
+
+    align-self:end;
+
+    padding-bottom:11vh;
+  }
+
+  .gate-logo{
+    max-width:500px;
+  }
+
+  .gate-release{
+    font-size:8px;
+  }
+
+  .hero{
+    min-height:76vh;
+  }
+
+  .hero-visual img{
+    object-position:67% center;
+  }
+
+  .hero-visual:after{
+    background:
+      linear-gradient(
+        0deg,
+        #040404 0%,
+        rgba(4,4,4,.92) 24%,
+        rgba(4,4,4,.50) 56%,
+        rgba(4,4,4,.20) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(4,4,4,.68),
+        rgba(4,4,4,.12)
+      );
+  }
+
+  .hero-inner{
+    padding:260px 0 48px;
+  }
+
+  .hero h1{
+    font-size:clamp(54px,17vw,82px);
+  }
+
+  .hero-meta{
+    font-size:8px;
+    letter-spacing:.14em;
+  }
+
+  .album{
+    padding:64px 0;
+  }
+
+  .album-copy{
+    padding:40px 0;
+  }
+
+  .album-visual{
+    min-height:300px;
+  }
+
+  .access{
+    padding-bottom:64px;
+  }
+
+  .access-grid{
+    grid-template-columns:1fr;
+  }
+
+  .access-card:first-child{
+    grid-column:auto;
+  }
+
+  .access-card{
+    min-height:270px;
+  }
+
+  .about-inner{
+    padding:65px 0;
+  }
+
+  .about-copy p{
+    font-size:12px;
+  }
+
+  .lyric-list{
+    grid-template-columns:1fr;
+  }
+
+  .foot{
+    min-height:82px;
+  }
+
+  #audioButton{
+    right:16px;
+    bottom:16px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *:before,
+  *:after{
+    transition:none!important;
+  }
+}
+
 </style>
 </head>
+
 <body class="locked">
-<div class="frame"></div>
 
 <audio id="bgAudio" loop preload="auto" playsinline>
-  <source src="/assets/audio/audio/background/LA%20MADRE%20DEL%20CORDERO%20UNO.mp3" type="audio/mpeg">
+  <source
+    src="/assets/audio/audio/background/LA%20MADRE%20DEL%20CORDERO%20UNO.mp3"
+    type="audio/mpeg">
 </audio>
 
-<div id="gate">
+<div id="gate" aria-label="Entrar en ARRAKO">
+
   <div class="gate-inner">
-    <img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png" alt="ARRAKO">
-    <button id="enter" type="button">ENTRAR</button>
+
+    <img
+      class="gate-logo"
+      src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png"
+      alt="ARRAKO">
+
+    <div class="gate-release">
+      PESO MUERTO · 23.10.2026
+    </div>
+
+    <button
+      id="enter"
+      type="button">
+      ENTRAR
+    </button>
+
   </div>
+
 </div>
 
 <div class="wrap">
+
 <header>
+
   <div class="head">
-    <a class="brand" href="/" aria-label="ARRAKO"></a>
-    <nav>
-      <a href="/musica/">MÚSICA</a>
-      <a href="https://www.youtube.com/@Arrakoo/videos" target="_blank" rel="noopener">VÍDEOS</a>
-      <a href="#" data-modal="lyrics">LETRAS</a>
-      <a href="#" data-modal="arrako">ARRAKO</a>
+
+    <a
+      class="brand"
+      href="/"
+      aria-label="ARRAKO — Inicio">
+    </a>
+
+    <nav aria-label="Navegación principal">
+
+      <a href="/musica/">
+        MÚSICA
+      </a>
+
+      <a
+        href="https://www.youtube.com/@Arrakoo/videos"
+        target="_blank"
+        rel="noopener">
+        VÍDEOS
+      </a>
+
+      <a
+        href="#"
+        data-modal="lyrics">
+        LETRAS
+      </a>
+
+      <a href="#arrako">
+        ARRAKO
+      </a>
+
     </nav>
+
   </div>
+
 </header>
 
 <main>
+
 <section class="hero">
-  <div class="hero-split">
-    <div class="hero-pane left"><img src="/assets/images/a-conceptual-image-of-the-universe-as-a-machine-of-KS6sAGxcSXW6qi-wzdN4lg-nEt7w9d3THapnEUPDDXNYA.png" alt=""></div>
-    <div class="hero-pane right"><img src="/assets/images/image_large_ad399c5c-d91c-4650-8b35-39aeb4c9109d.jpeg" alt=""></div>
+
+  <div class="hero-visual">
+
+    <img
+      src="/assets/images/image_large_ad399c5c-d91c-4650-8b35-39aeb4c9109d.jpeg"
+      alt="">
+
   </div>
+
   <div class="hero-inner">
+
     <div class="hero-copy">
-      <h1>MÚSICA.<br><span>MATERIA.</span><br>MEMORIA.</h1>
-      <div class="hero-axis">MÚSICA · PRODUCCIÓN · TEXTO · IMAGEN</div>
+
+      <p class="eyebrow">
+        ARRAKO · NUEVO ÁLBUM
+      </p>
+
+      <h1>
+        PESO
+        <span>MUERTO</span>
+      </h1>
+
+      <div class="hero-meta">
+
+        <span>
+          23.10.2026
+        </span>
+
+        <span>
+          MÚSICA · MATERIA · MEMORIA
+        </span>
+
+      </div>
+
+      <div class="hero-actions">
+
+        <a
+          class="btn primary"
+          href="#peso-muerto">
+          PESO MUERTO
+        </a>
+
+        <a
+          class="btn"
+          href="/musica/">
+          MÚSICA
+        </a>
+
+      </div>
+
     </div>
+
   </div>
-  <div class="arrako-seal" aria-label="Sello ARRAKO"><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_53_48.png" alt="Sello ARRAKO"></div>
+
 </section>
 
-<section class="portals">
-  <div class="portal-grid">
-    <a class="portal" href="/musica/">
-      <img src="/assets/images/a-conceptual-image-of-the-universe-as-a-machine-of-KS6sAGxcSXW6qi-wzdN4lg-nEt7w9d3THapnEUPDDXNYA.png" alt="">
-      <div class="portal-copy"><small>01</small><h2>MÚSICA</h2><p>Discografía, canciones, colaboraciones y producciones. Toda la pieza es clicable.</p></div>
-    </a>
+<section
+  class="album"
+  id="peso-muerto">
 
-    <a class="portal" href="https://www.youtube.com/@Arrakoo/videos" target="_blank" rel="noopener">
-      <img src="/assets/images/a-dark-atmosphere-with-a-deep-blue-backg_dViGooOcQ3KnJaAEoxSQ2w_DCGOzxI1QxGPkE8IRgj4dg.png" alt="">
-      <div class="portal-copy"><small>02</small><h2>VÍDEOS</h2><p>Abre directamente el canal oficial de ARRAKO.</p></div>
-    </a>
+  <div class="album-grid">
 
-    <a class="portal" href="#" data-modal="lyrics">
-      <img src="/assets/images/a-cinematic-medium-shot-of-a-glowing-han_UW-mwd0NRguZDTdkXAcyGQ_djtojYfkSPOtrLRNTOruOA.png" alt="">
-      <div class="portal-copy"><small>03</small><h2>LETRAS</h2><p>Abre un archivo real de títulos líricos ya existentes.</p></div>
-    </a>
+    <div class="album-copy">
 
-    <a class="portal" href="#" data-modal="arrako">
-      <img src="/assets/images/a-majestic-and-magnificent-sculpture-of-_Luuhc2qhRV2Rl3d3-9t33Q_jqd9yDr8STmonmKiBbVkfA.png" alt="">
-      <div class="portal-copy"><small>04</small><h2>ARRAKO</h2><p>Abre una galería visual del proyecto, no una ventana vacía.</p></div>
-    </a>
+      <div class="section-kicker">
+        NUEVO ÁLBUM
+      </div>
+
+      <h2>
+        PESO
+        <br>
+        MUERTO
+      </h2>
+
+      <div class="album-date">
+        23 · 10 · 2026
+      </div>
+
+      <p>
+        Nuevo trabajo de ARRAKO.
+        Rap, escritura, producción e imagen
+        construidos como una sola pieza.
+      </p>
+
+      <div
+        class="singles"
+        aria-label="Adelantos">
+
+        <div class="single">
+
+          <strong>
+            ATIBORRADO
+          </strong>
+
+          <span>
+            09 · 10 · 2026
+          </span>
+
+        </div>
+
+        <div class="single">
+
+          <strong>
+            AMOR CIRCUNSTANCIAL
+          </strong>
+
+          <span>
+            16 · 10 · 2026
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="album-visual">
+
+      <img
+        src="/assets/images/entrada-monolito-peso-muerto.png"
+        alt="Peso Muerto — ARRAKO">
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="peso" id="peso-muerto">
-  <div class="peso-copy">
-    <small>PRÓXIMO ÁLBUM</small>
-    <h2>PESO<br>MUERTO</h2>
-    <p>Una sola presencia en la HOME. Sin duplicarlo dentro de una falsa discografía. El catálogo histórico vive en MÚSICA.</p>
+<section class="access">
+
+  <p class="access-title">
+    ARCHIVO
+  </p>
+
+  <div class="access-grid">
+
+    <a
+      class="access-card"
+      href="/musica/">
+
+      <img
+        src="/assets/images/a-conceptual-image-of-the-universe-as-a-machine-of-KS6sAGxcSXW6qi-wzdN4lg-nEt7w9d3THapnEUPDDXNYA.png"
+        alt="">
+
+      <div class="access-copy">
+
+        <small>
+          01
+        </small>
+
+        <h3>
+          MÚSICA
+        </h3>
+
+        <p>
+          Discografía, canciones, colaboraciones y producciones.
+        </p>
+
+      </div>
+
+    </a>
+
+    <a
+      class="access-card"
+      href="https://www.youtube.com/@Arrakoo/videos"
+      target="_blank"
+      rel="noopener">
+
+      <img
+        src="/assets/images/a-dark-atmosphere-with-a-deep-blue-backg_dViGooOcQ3KnJaAEoxSQ2w_DCGOzxI1QxGPkE8IRgj4dg.png"
+        alt="">
+
+      <div class="access-copy">
+
+        <small>
+          02
+        </small>
+
+        <h3>
+          VÍDEOS
+        </h3>
+
+        <p>
+          Piezas visuales y canciones.
+        </p>
+
+      </div>
+
+    </a>
+
+    <a
+      class="access-card"
+      href="#"
+      data-modal="lyrics">
+
+      <img
+        src="/assets/images/a-cinematic-medium-shot-of-a-glowing-han_UW-mwd0NRguZDTdkXAcyGQ_djtojYfkSPOtrLRNTOruOA.png"
+        alt="">
+
+      <div class="access-copy">
+
+        <small>
+          03
+        </small>
+
+        <h3>
+          LETRAS
+        </h3>
+
+        <p>
+          Textos y canciones del proyecto.
+        </p>
+
+      </div>
+
+    </a>
+
   </div>
-  <div class="peso-art"></div>
+
 </section>
+
+<section
+  class="about"
+  id="arrako">
+
+  <div class="about-inner">
+
+    <div class="about-label">
+      ARRAKO
+    </div>
+
+    <div class="about-copy">
+
+      <h2>
+        OBRA ANTES
+        <br>
+        QUE ESCAPARATE.
+      </h2>
+
+      <p>
+        ARRAKO trabaja entre rap, escritura, producción e imagen.
+        El proyecto parte del lenguaje como materia:
+        ritmo, sonido, pensamiento y forma
+        sin separar unas disciplinas de otras.
+      </p>
+
+      <div class="axis">
+        MÚSICA · TEXTO · PRODUCCIÓN · IMAGEN
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 </main>
 
-<footer><div class="foot"><span>ARRAKO.COM</span><span>© 2026 ARRAKO</span></div></footer>
+<footer>
+
+  <div class="foot">
+
+    <span>
+      ARRAKO.COM
+    </span>
+
+    <span>
+      © 2026 ARRAKO
+    </span>
+
+  </div>
+
+</footer>
+
 </div>
 
-<button id="audioButton" type="button">SONIDO · OFF</button>
+<button
+  id="audioButton"
+  type="button"
+  aria-label="Activar o desactivar sonido">
+  SONIDO · OFF
+</button>
 
-<div class="modal" id="lyrics">
+<div
+  class="modal"
+  id="lyrics"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="lyrics-title">
+
   <div class="card">
-    <h2>LETRAS</h2>
-    <p>Archivo de textos ya existentes en el proyecto. La página definitiva podrá desarrollar cada pieza completa después.</p>
+
+    <h2 id="lyrics-title">
+      LETRAS
+    </h2>
+
+    <p>
+      Selección de letras y textos del proyecto ARRAKO.
+    </p>
+
     <div class="lyric-list">
-      <div class="lyric-item">Aloha</div>
-      <div class="lyric-item">Coloquialmente</div>
-      <div class="lyric-item">Atiborrado</div>
-      <div class="lyric-item">Derrape Limpio (Eje Quieto)</div>
-      <div class="lyric-item">Renacimiento</div>
-      <div class="lyric-item">Permanezco serio</div>
-    </div>
-    <button class="close">CERRAR</button>
-  </div>
-</div>
 
-<div class="modal" id="arrako">
-  <div class="card">
-    <h2>ARRAKO</h2>
-    <p>Archivo visual. Aquí sí ocurre algo al pulsar: se abre una selección del material que has ido construyendo.</p>
-    <div class="gallery">
-<figure><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2007_23_50.png" alt=""></figure>
-<figure><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2007_41_42.png" alt=""></figure>
-<figure><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2007_43_34.png" alt=""></figure>
-<figure><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2021_01_18.png" alt=""></figure>
-<figure><img src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2021_15_50.png" alt=""></figure>
-<figure><img src="/assets/images/WhatsApp%20Image%202025-01-24%20at%2016.23.36.jpeg" alt=""></figure>
-<figure><img src="/assets/images/WhatsApp%20Image%202026-05-20%20at%2015.30.05%20%281%29.jpeg" alt=""></figure>
-<figure><img src="/assets/images/WhatsApp%20Image%202026-06-05%20at%2009.32.50.jpeg" alt=""></figure>
-<figure><img src="/assets/images/WhatsApp%20Image%202026-06-07%20at%2004.14.22%20%281%29.jpeg" alt=""></figure>
-<figure><img src="/assets/images/WhatsApp%20Image%202026-06-07%20at%2004.14.26.jpeg" alt=""></figure>
-<figure><img src="/assets/images/a-cinematic-medium-shot-of-a-lone-travel_NLtYj8gGT3-x4c7LEUPT7g_tldL9eYuQBKHv1IDPu4aJQ.png" alt=""></figure>
-<figure><img src="/assets/images/a-close-up-of-a-red-haired-woman-s-face-_9VmQUejmT_CqJwhxg866Tw_x9KujoBJTBq2yIfA-AoPHA.png" alt=""></figure>
-<figure><img src="/assets/images/a-minimalist-cinematic-album-cover-featu_JEQ2bp5EQQ2fZ5Qs3ayU3w_CD-AkVecS92U6Of2Qx-MmQ_hd.png" alt=""></figure>
-<figure><img src="/assets/images/a-minimalist-cinematic-logo-design-featu_8TIxRNraQiqRRN9-QS2Vfg_ZZkFZ2rkTBaUSPSxwu5Ylw_hd.png" alt=""></figure>
-<figure><img src="/assets/images/a-minimalist-cinematic-youtube-banner-wi_93U8HTf2Q52qyRNyCKaaZg_Eve6LNRNRDa1v6E-gO3zgQ_hd.png" alt=""></figure>
-<figure><img src="/assets/images/a-minimalist-vector-logo-design-featurin_3LuUmL3CVKiwO8jpZYeSBQ_fh6aBw72QlC6R5-t2D7PYQ_hd.png" alt=""></figure>
-<figure><img src="/assets/images/a-professionally-designed-album-cover-ar_LT4XI_ObSseKup4bAEKbjQ_bx0yM7fwSRWLRo9wJ3rzdw.png" alt=""></figure>
-<figure><img src="/assets/images/a-ultra-minimalist-3d-logo-featuring-the_mgVc5f3SQeOFiQuLD6yAcw_1VsAOLpJQpWF01sy49gt-Q_hd.png" alt=""></figure>
-<figure><img src="/assets/images/a-ultra-minimalist-logo-design-on-a-deep_9fT3pqJ5Q3eNPtCXfO65UQ_L-N6UI-aSWW-IzEgn2r4cg_cover_hd.png" alt=""></figure>
-</div>
-    <button class="close">CERRAR</button>
+      <div class="lyric-item">
+        Atiborrado
+      </div>
+
+      <div class="lyric-item">
+        Amor circunstancial
+      </div>
+
+      <div class="lyric-item">
+        Coloquialmente
+      </div>
+
+      <div class="lyric-item">
+        Autodidacta
+      </div>
+
+      <div class="lyric-item">
+        Derrape Limpio
+      </div>
+
+      <div class="lyric-item">
+        Permanezco serio
+      </div>
+
+      <div class="lyric-item">
+        Renacimiento
+      </div>
+
+      <div class="lyric-item">
+        Date una vuelta
+      </div>
+
+      <div class="lyric-item">
+        Más aquí
+      </div>
+
+    </div>
+
+    <button
+      class="close"
+      type="button">
+      CERRAR
+    </button>
+
   </div>
+
 </div>
 
 <script>
-const gate=document.getElementById("gate"),enter=document.getElementById("enter"),audio=document.getElementById("bgAudio"),audioButton=document.getElementById("audioButton");
+
+const gate =
+  document.getElementById("gate");
+
+const enter =
+  document.getElementById("enter");
+
+const audio =
+  document.getElementById("bgAudio");
+
+const audioButton =
+  document.getElementById("audioButton");
+
 audio.volume=.16;
-function state(){const on=!audio.paused;audioButton.textContent=on?"SONIDO · ON":"SONIDO · OFF";audioButton.classList.toggle("on",on)}
-function enterSite(){sessionStorage.setItem("arrakoSound","on");audio.play().catch(()=>{});gate.classList.add("closed");document.body.classList.remove("locked");setTimeout(()=>gate.style.display="none",750)}
-gate.addEventListener("click",enterSite);enter.addEventListener("click",e=>{e.stopPropagation();enterSite()});
-audioButton.addEventListener("click",()=>{if(audio.paused){sessionStorage.setItem("arrakoSound","on");audio.play().catch(()=>{})}else{sessionStorage.setItem("arrakoSound","off");audio.pause()}setTimeout(state,50)});
-audio.addEventListener("play",state);audio.addEventListener("pause",state);
-document.querySelectorAll("[data-modal]").forEach(x=>x.addEventListener("click",e=>{e.preventDefault();document.getElementById(x.dataset.modal).classList.add("open")}));
-document.querySelectorAll(".close").forEach(x=>x.addEventListener("click",()=>x.closest(".modal").classList.remove("open")));
-document.querySelectorAll(".modal").forEach(x=>x.addEventListener("click",e=>{if(e.target===x)x.classList.remove("open")}));
+
+function state(){
+
+  const on =
+    !audio.paused;
+
+  audioButton.textContent =
+    on
+    ? "SONIDO · ON"
+    : "SONIDO · OFF";
+
+  audioButton.classList.toggle(
+    "on",
+    on
+  );
+}
+
+function enterSite(){
+
+  sessionStorage.setItem(
+    "arrakoSound",
+    "on"
+  );
+
+  audio
+    .play()
+    .catch(()=>{});
+
+  gate.classList.add(
+    "closed"
+  );
+
+  document
+    .body
+    .classList
+    .remove(
+      "locked"
+    );
+
+  setTimeout(
+    ()=>{
+      gate.style.display="none";
+    },
+    850
+  );
+}
+
+gate.addEventListener(
+  "click",
+  enterSite
+);
+
+enter.addEventListener(
+  "click",
+  e=>{
+
+    e.stopPropagation();
+
+    enterSite();
+
+  }
+);
+
+audioButton.addEventListener(
+  "click",
+  ()=>{
+
+    if(audio.paused){
+
+      sessionStorage.setItem(
+        "arrakoSound",
+        "on"
+      );
+
+      audio
+        .play()
+        .catch(()=>{});
+
+    }else{
+
+      sessionStorage.setItem(
+        "arrakoSound",
+        "off"
+      );
+
+      audio.pause();
+
+    }
+
+    setTimeout(
+      state,
+      50
+    );
+
+  }
+);
+
+audio.addEventListener(
+  "play",
+  state
+);
+
+audio.addEventListener(
+  "pause",
+  state
+);
+
+document
+  .querySelectorAll(
+    "[data-modal]"
+  )
+  .forEach(
+    x=>{
+
+      x.addEventListener(
+        "click",
+        e=>{
+
+          e.preventDefault();
+
+          document
+            .getElementById(
+              x.dataset.modal
+            )
+            .classList
+            .add(
+              "open"
+            );
+
+        }
+      );
+
+    }
+  );
+
+document
+  .querySelectorAll(
+    ".close"
+  )
+  .forEach(
+    x=>{
+
+      x.addEventListener(
+        "click",
+        ()=>{
+
+          x
+            .closest(
+              ".modal"
+            )
+            .classList
+            .remove(
+              "open"
+            );
+
+        }
+      );
+
+    }
+  );
+
+document
+  .querySelectorAll(
+    ".modal"
+  )
+  .forEach(
+    x=>{
+
+      x.addEventListener(
+        "click",
+        e=>{
+
+          if(e.target===x){
+
+            x.classList.remove(
+              "open"
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+document.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key==="Escape"){
+
+      document
+        .querySelectorAll(
+          ".modal.open"
+        )
+        .forEach(
+          x=>
+            x.classList.remove(
+              "open"
+            )
+        );
+
+    }
+
+  }
+);
+
 </script>
+
 </body>
 </html>
