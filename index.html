@@ -922,6 +922,42 @@ nav .menu-universe{color:#ead4ab;font-size:.78em;letter-spacing:.08em;margin-lef
   #lyrics .card{max-height:94dvh}
 }
 
+
+/* Lector de letras ampliado y de altura fija: índice y poema desplazan por separado. */
+#lyrics{padding:12px;overscroll-behavior:contain}
+#lyrics .card{width:min(1480px,calc(100vw - 24px));height:min(94dvh,1050px);max-height:calc(100dvh - 24px);display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:clamp(18px,2.4vw,36px)}
+#lyrics .card>h2{flex:none;font-size:clamp(49px,6vw,89px);margin:0 0 10px}
+#lyrics .card>p{flex:none;font-size:clamp(13px,1vw,15px);line-height:1.55;margin:0 0 6px}
+#lyrics .lyric-library{flex:1 1 auto;display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
+#lyrics .lyric-library-kicker{flex:none;font-size:12px!important;margin:13px 0 11px}
+#lyrics .lyric-library-layout{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.75fr);grid-template-rows:minmax(0,1fr);flex:1 1 auto;min-height:0;min-width:0;height:auto;max-height:none;align-items:stretch;overflow:hidden;gap:18px}
+#lyrics .lyric-library .lyric-list{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;height:100%;min-height:0;max-height:100%;width:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;overflow-anchor:none;scrollbar-gutter:stable;scroll-padding:14px 0;margin:0;gap:5px;padding:0 5px 1px 0}
+#lyrics .lyric-library .lyric-item{flex:0 0 auto;min-height:52px;padding:12px 15px;font-size:clamp(14px,1.1vw,16px);line-height:1.4}
+#lyrics .lyric-index{font-size:12px}
+#lyrics .lyric-reader{height:100%;max-height:100%;min-height:0;min-width:0;overflow-y:auto;overscroll-behavior:contain;overflow-anchor:none;padding:clamp(22px,3.3vw,48px)}
+#lyrics .lyric-reader h3{font-size:clamp(33px,4vw,55px);margin:12px 0 26px;line-height:1.08}
+#lyrics .lyric-reader-number{font-size:13px}
+#lyrics .lyric-full-text{font-size:clamp(17px,1.35vw,21px);line-height:1.83;letter-spacing:.012em;tab-size:4}
+#lyrics .close{flex:none;align-self:flex-end;margin-top:14px;font-size:12px;padding:12px 22px;color:#e7ca94;border-color:#77582f}
+#lyrics .close:hover,#lyrics .close:focus-visible{background:#241b0e;border-color:#e3ac58;color:#ffe3b1}
+@media(max-width:760px){
+#lyrics{padding:7px}
+#lyrics .card{width:100%;height:calc(100dvh - 14px);max-height:calc(100dvh - 14px);padding:15px}
+#lyrics .card>h2{font-size:clamp(43px,10vw,65px);margin-bottom:7px}
+#lyrics .card>p{font-size:12px;line-height:1.45;margin-bottom:0}
+#lyrics .lyric-library-kicker{font-size:10px!important;margin:10px 0 8px}
+#lyrics .lyric-library-layout{display:flex;flex-direction:column;min-height:0;gap:12px}
+#lyrics .lyric-library .lyric-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(46px,auto);align-content:start;height:clamp(150px,26dvh,220px);max-height:clamp(150px,26dvh,220px);flex:0 0 clamp(150px,26dvh,220px);gap:6px}
+#lyrics .lyric-library .lyric-item{font-size:12px;min-height:46px;padding:9px;gap:8px}
+#lyrics .lyric-index{font-size:10px}
+#lyrics .lyric-reader{height:auto;max-height:none;flex:1 1 0;min-height:0;padding:20px}
+#lyrics .lyric-reader h3{font-size:clamp(29px,7vw,42px);margin:9px 0 16px}
+#lyrics .lyric-full-text{font-size:17px;line-height:1.72}
+#lyrics .close{margin-top:10px;padding:10px 18px}
+}
+@media(max-width:400px){#lyrics .lyric-library .lyric-list{grid-template-columns:1fr;height:130px;max-height:130px;flex-basis:130px}}
+@media(max-height:570px) and (max-width:760px){#lyrics .lyric-library .lyric-list{height:115px;max-height:115px;flex-basis:115px}#lyrics .card>h2{font-size:37px}#lyrics .card>p{font-size:11px}}
+
 </style>
 </head>
 
@@ -1522,6 +1558,7 @@ const arrakoLyrics=JSON.parse(document.getElementById("lyrics-data").textContent
 const arrakoLyricList=document.getElementById("lyrics-song-list");
 const arrakoLyricReader=document.getElementById("lyric-reader");
 function openArrakoLyric(item){
+  const indexScroll=arrakoLyricList.scrollTop;
   arrakoLyricList.querySelectorAll("button").forEach(b=>{
     const active=Number(b.dataset.track)===item.n;
     b.setAttribute("aria-pressed",String(active));
@@ -1546,6 +1583,7 @@ function openArrakoLyric(item){
     arrakoLyricReader.append(unavailable);
   }
   arrakoLyricReader.scrollTop=0;
+  arrakoLyricList.scrollTop=indexScroll;
 }
 arrakoLyrics.forEach(item=>{
   const btn=document.createElement("button");
