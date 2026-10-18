@@ -830,6 +830,12 @@ footer{
     transition:none!important;
   }
 }
+
+/* Enlace editorial de Peso Muerto, integrado en la estética de la web */
+.museo-cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:14px 17px;border:1px solid var(--amber);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-decoration:none;transition:background .2s,color .2s}
+.museo-cta:hover,.museo-cta:focus-visible{background:var(--amber-hi);color:#040404}
+@media(max-width:720px){nav{flex-wrap:wrap;column-gap:16px;row-gap:8px}}
+
 </style>
 </head>
 
@@ -876,6 +882,10 @@ footer{
 
       <a href="/musica/">
         MÚSICA
+      </a>
+
+      <a href="/peso-muerto/universo/">
+        UNIVERSO
       </a>
 
       <a
@@ -998,6 +1008,8 @@ footer{
         </div>
 
       </div>
+
+      <a class="museo-cta" href="/peso-muerto/universo/" aria-label="Visitar el Universo Peso Muerto, el museo interactivo del álbum">EXPLORAR EL UNIVERSO <span aria-hidden="true">↗</span></a>
 
     </div>
 
