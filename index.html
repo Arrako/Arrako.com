@@ -836,6 +836,48 @@ footer{
 .museo-cta:hover,.museo-cta:focus-visible{background:var(--amber-hi);color:#040404}
 @media(max-width:720px){nav{flex-wrap:wrap;column-gap:16px;row-gap:8px}}
 
+
+/* ==================== UNIVERSO PESO MUERTO ==================== */
+#gate{background:#050505;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:default;overscroll-behavior:contain}
+#gate::before,#gate::after{display:none}
+.pm-portal-scene{position:relative;width:min(100vw,177.68dvh);aspect-ratio:1672 / 941;z-index:3;max-height:100dvh;overflow:hidden;background:#090a09}
+.pm-portal-art{display:block;width:100%;height:100%;object-fit:contain}
+.pm-portal{position:absolute;display:block;cursor:pointer;border:2px solid transparent;border-radius:46% 46% 2% 2% / 18% 18% 2% 2%;transition:box-shadow .25s ease,background .25s ease,border-color .25s ease}
+.pm-portal-web{left:14%;top:11%;width:24.8%;height:65%}
+.pm-portal-universe{left:60.9%;top:11%;width:24.8%;height:65%}
+.pm-portal:hover,.pm-portal:focus-visible{border-color:rgba(221,172,92,.45);background:rgba(209,150,54,.07);box-shadow:0 0 32px rgba(203,147,67,.36),inset 0 0 24px rgba(221,172,92,.1)}
+.pm-portal-universe:hover,.pm-portal-universe:focus-visible{border-color:rgba(100,170,128,.6);background:rgba(81,143,102,.07);box-shadow:0 0 32px rgba(54,138,91,.38),inset 0 0 24px rgba(100,170,128,.12)}
+.pm-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.pm-mobile-entries{display:none}
+nav .menu-universe{color:var(--amber-hi);font-size:.74em;margin-left:5px;letter-spacing:.10em}
+.universe-feature{position:relative;padding:92px 0;border-top:1px solid rgba(178,122,26,.16);background:linear-gradient(130deg,rgba(178,122,26,.05),transparent 38%),#080908}
+.universe-feature__grid{width:min(var(--max),92%);margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,90px);align-items:center}
+.universe-feature__copy h2{font-family:"Inter Tight",Arial,sans-serif;font-size:clamp(48px,6.5vw,106px);line-height:.92;letter-spacing:-.038em;margin:18px 0 28px}
+.universe-feature__copy h2 span{display:block;font-size:.39em;letter-spacing:.33em;color:var(--amber-hi);margin-top:14px}
+.universe-feature__copy p:not(.section-kicker){max-width:550px;font-size:clamp(14px,1.2vw,17px);line-height:1.85;color:#afa9a0}
+.universe-feature__cta{display:inline-flex;align-items:center;gap:25px;margin-top:28px;padding:16px 22px;border:1px solid rgba(178,122,26,.66);font-size:11px;letter-spacing:.16em;font-weight:700;transition:.2s}
+.universe-feature__cta:hover,.universe-feature__cta:focus-visible{background:var(--amber-hi);color:#090909}
+.universe-feature__visual{position:relative;overflow:hidden;display:block;border:1px solid rgba(178,122,26,.25);aspect-ratio:16/10;background:#111}
+.universe-feature__visual img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease}
+.universe-feature__visual:hover img,.universe-feature__visual:focus-visible img{transform:scale(1.035)}
+.universe-feature__visual>span{position:absolute;bottom:0;left:0;right:0;text-align:center;padding:35px 12px 18px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:10px;letter-spacing:.17em;color:#f0e6d4}
+@media(max-width:920px){.universe-feature__grid{grid-template-columns:1fr}.universe-feature__visual{max-width:850px}}
+@media(max-width:720px){
+  #gate{padding:16px 0 20px;overflow-y:auto;justify-content:center}
+  .pm-portal-scene{width:100vw;max-height:none;aspect-ratio:1672 / 941;flex:none}
+  .pm-portal{border-width:1px}
+  .pm-portal-web{left:12%;top:10%;width:28%;height:70%}
+  .pm-portal-universe{left:60%;top:10%;width:28%;height:70%}
+  .pm-mobile-entries{z-index:4;display:grid;grid-template-columns:1fr 1fr;width:min(96vw,520px);gap:10px;margin-top:22px}
+  .pm-mobile-entries>a,.pm-mobile-entries>button{font-family:inherit;min-height:66px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid rgba(178,122,26,.5);background:#12110e;color:#ede9e0;font-size:10px;line-height:1.5;font-weight:700;text-align:center;letter-spacing:.09em;text-decoration:none;cursor:pointer}
+  .pm-mobile-entries>a{border-color:rgba(75,139,96,.7)}
+  .pm-mobile-entries small{font-size:9px;letter-spacing:.25em;color:#ce9a49}
+  .universe-feature{padding:60px 0}
+  .universe-feature__copy h2{font-size:clamp(44px,12vw,72px)}
+  nav{flex-wrap:wrap;justify-content:flex-start;gap:12px 18px}
+}
+@media(prefers-reduced-motion:reduce){.pm-portal,.universe-feature__visual img{transition:none}}
+
 </style>
 </head>
 
@@ -847,23 +889,17 @@ footer{
   <source src="/assets/audio/audio/background/LA%20MADRE%20DEL%20CORDERO%20UNO.mp3" type="audio/mpeg">
 </audio>
 
-<div id="gate" aria-label="Entrar en ARRAKO">
-  <div class="gate-inner">
-
-    <img
-      class="gate-logo"
-      src="/assets/images/ChatGPT%20Image%2023%20ago%202026%2C%2016_45_02.png"
-      alt="ARRAKO">
-
-    <div class="gate-release">
-      PESO MUERTO · 23.10.2026
-    </div>
-
-    <button id="enter" type="button">
-      ENTRAR
-    </button>
-
+<div id="gate" aria-label="Elige cómo entrar en ARRAKO">
+  <div class="pm-portal-scene" aria-label="Dos puertas: web de ARRAKO y Universo Peso Muerto">
+    <img class="pm-portal-art" src="/assets/images/peso-muerto-universo-portada.png" alt="Dos puertas monumentales de piedra negra, iluminadas en ámbar y jade; izquierda ARRAKO.COM y derecha Peso Muerto Universo" fetchpriority="high">
+    <a class="pm-portal pm-portal-web" href="#inicio" aria-label="Entrar a la página oficial de ARRAKO"><span class="pm-visually-hidden">Entrar a ARRAKO.COM</span></a>
+    <a class="pm-portal pm-portal-universe" href="/peso-muerto/universo/" aria-label="Entrar al museo interactivo Universo Peso Muerto"><span class="pm-visually-hidden">Entrar a Peso Muerto Universo</span></a>
   </div>
+  <div class="pm-mobile-entries" aria-label="Seleccionar entrada">
+    <button class="pm-mobile-web" type="button">ENTRAR A ARRAKO.COM <span aria-hidden="true">↗</span></button>
+    <a href="/peso-muerto/universo/">PESO MUERTO <small>UNIVERSO</small> <span aria-hidden="true">↗</span></a>
+  </div>
+  <button id="enter" type="button" class="pm-visually-hidden" tabindex="-1">Entrar a ARRAKO</button>
 </div>
 
 <div class="wrap">
@@ -884,9 +920,7 @@ footer{
         MÚSICA
       </a>
 
-      <a href="/peso-muerto/universo/">
-        UNIVERSO
-      </a>
+      <a href="/peso-muerto/universo/" aria-label="Universo Peso Muerto">PESO MUERTO <span class="menu-universe">UNIVERSO</span></a>
 
       <a
         href="https://www.youtube.com/@Arrakoo/videos"
@@ -1023,6 +1057,21 @@ footer{
 
   </div>
 
+</section>
+
+<section class="universe-feature" id="universo-peso-muerto" aria-labelledby="universe-heading">
+  <div class="universe-feature__grid">
+    <div class="universe-feature__copy">
+      <p class="section-kicker">EL ÁLBUM COMO TERRITORIO</p>
+      <h2 id="universe-heading">PESO MUERTO <span>UNIVERSO</span></h2>
+      <p>Una exposición interactiva sobre las dieciocho piezas de <em>Peso Muerto</em>. Seis constelaciones temáticas, conexiones entre canciones y recorridos para explorar la obra desde dentro.</p>
+      <a class="universe-feature__cta" href="/peso-muerto/universo/">EXPLORAR EL MUSEO <span aria-hidden="true">↗</span></a>
+    </div>
+    <a class="universe-feature__visual" href="/peso-muerto/universo/" aria-label="Explorar el museo Universo Peso Muerto">
+      <img src="/assets/images/peso-muerto-universo-portada.png" alt="Dos puertas de acceso al universo artístico de ARRAKO y al museo Peso Muerto" loading="lazy">
+      <span>ENTRAR AL UNIVERSO <span aria-hidden="true">↗</span></span>
+    </a>
+  </div>
 </section>
 
 <section class="access">
@@ -1292,10 +1341,12 @@ function enterSite(){
   );
 }
 
-gate.addEventListener(
-  "click",
-  enterSite
-);
+gate.addEventListener("click",e=>{
+  if(e.target.closest(".pm-portal-universe")) { e.stopPropagation(); return; }
+  if(e.target.closest(".pm-portal-web")) { e.preventDefault(); enterSite(); }
+});
+const mobileWeb=document.querySelector(".pm-mobile-web");
+if(mobileWeb) mobileWeb.addEventListener("click",e=>{e.stopPropagation();enterSite();});
 
 enter.addEventListener(
   "click",
