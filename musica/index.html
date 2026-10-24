@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ARRAKO — Música</title>
+<meta name="description" content="Escucha Peso Muerto de ARRAKO, álbum de 18 piezas publicado en octubre de 2026, y explora su discografía y producciones.">
 <style>
 :root{--black:#040404;--white:#EAE7E1;--yellow:#F5A800;--jade:#3FAF6C;--muted:#929292;--line:rgba(255,255,255,.08)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#040404;color:var(--white);font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}
@@ -31,6 +32,19 @@ url("/assets/images/a-digital-illustration-of-the-universe-as-a-massiv-rgjCriSVS
 .work-copy{position:absolute;z-index:2;left:20px;right:20px;bottom:20px}.work-copy small{font-size:8px;letter-spacing:.2em;color:var(--jade)}
 .work-copy h3{font-size:27px;line-height:.92;letter-spacing:-.035em;margin:8px 0}.work-copy p{font-size:10px;line-height:1.55;color:#aaa;margin:0}
 .work.static{cursor:default}.placeholder{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#222, #080808 65%);font-size:32px;font-weight:700;letter-spacing:-.05em;color:#ddd;text-align:center;padding:20px}
+.release{width:min(1450px,94%);margin:auto;padding:70px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(230px,.66fr) minmax(0,1fr);gap:clamp(26px,4vw,72px);align-items:start}
+.release-cover{width:100%;aspect-ratio:4/5;overflow:hidden;border:1px solid rgba(245,168,0,.2);background:#0b0b0b}
+.release-cover img{display:block;width:100%;height:100%;object-fit:cover}
+.release-kicker{font-size:10px;letter-spacing:.23em;color:var(--jade);font-weight:700}
+.release h2{font-size:clamp(45px,6vw,92px);line-height:.88;letter-spacing:-.06em;margin:16px 0 18px}
+.release-meta{font-size:11px;letter-spacing:.13em;color:#aaa}
+.release-description{color:#b4b1a8;font-size:12px;line-height:1.85;max-width:570px;margin:18px 0 22px}
+.release-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;background:var(--yellow);color:#060606;padding:13px 20px;font-size:11px;font-weight:800;letter-spacing:.1em}
+.release-button:hover,.release-button:focus-visible{background:#ffd065}
+.release-embed{margin-top:24px;width:100%;max-width:670px;border-radius:12px;overflow:hidden}
+.release-embed iframe{display:block;width:100%;height:352px;border:0;background:#121212}
+.release-caption{color:#89857c;font-size:10px;line-height:1.7;margin-top:12px}
+@media(max-width:800px){.release{grid-template-columns:1fr}.release-cover{max-width:480px;aspect-ratio:5/4}.release h2{font-size:clamp(50px,12vw,82px)}}
 .comida{margin-top:14px;border:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:310px 1fr;background:#090909}
 .comida-cover img{display:block;width:100%;height:100%;object-fit:cover}.comida-body{padding:28px}
 .comida-body h3{font-size:36px;margin:0 0 8px}.comida-body p{color:#999;font-size:11px;line-height:1.7}
@@ -64,8 +78,22 @@ footer{width:min(1450px,94%);min-height:100px;margin:auto;display:flex;align-ite
 <section class="hero"><div class="hero-inner"><h1>MÚSICA<br><span>ARRAKO</span></h1><p>Catálogo organizado de trabajos, canciones, colaboraciones y producción. Aquí sí está el archivo musical; la HOME no vuelve a fingir que lo contiene.</p></div></section>
 
 <main>
+<section class="release" aria-labelledby="peso-muerto-release-title">
+  <div class="release-cover"><img src="/assets/images/entrada-monolito-peso-muerto.png" alt="Imagen de Peso Muerto, el álbum de ARRAKO" loading="lazy"></div>
+  <div>
+    <div class="release-kicker">2026 · ÁLBUM DISPONIBLE</div>
+    <h2 id="peso-muerto-release-title">PESO<br>MUERTO</h2>
+    <div class="release-meta">18 PIEZAS · 23.10.2026</div>
+    <p class="release-description">El nuevo álbum de ARRAKO. Escucha las dieciocho piezas en Spotify o explora sus letras y conexiones en el Universo Peso Muerto.</p>
+    <a class="release-button" href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer">ESCUCHAR EL ÁLBUM EN SPOTIFY ↗</a>
+    <div class="release-embed">
+      <iframe title="Peso Muerto de ARRAKO — reproductor Spotify" src="https://open.spotify.com/embed/album/4D6MBMoGVIPZQNegCOviIE" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+    <p class="release-caption">También puedes <a href="/peso-muerto/universo/" style="color:var(--yellow);text-decoration:underline">explorar el museo interactivo del álbum</a>.</p>
+  </div>
+</section>
 <section class="section" id="trabajos">
-  <div class="section-head"><div><small>01 / DISCOGRAFÍA Y TRABAJOS</small><h2>TRABAJOS</h2></div><p>Ordenados de más reciente a más antiguo. Los destinos verificados abren al pulsar la tarjeta completa.</p></div>
+  <div class="section-head"><div><small>01 / DISCOGRAFÍA Y TRABAJOS</small><h2>TRABAJOS ANTERIORES</h2></div><p>Trabajos anteriores a Peso Muerto, ordenados de más reciente a más antiguo. Los destinos verificados abren al pulsar la tarjeta completa.</p></div>
   <div class="works">
     <a class="work" href="https://www.youtube.com/playlist?list=PLdmtS4qvdA2sUHAvg7WBizBcDFVQMEFLk" target="_blank" rel="noopener">
       <img src="/assets/images/ballads-bullets-bulls.png" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='/assets/images/ballads-bullets-bulls.png.png';}" alt="Ballads, Bullets & Bulls"><div class="work-copy"><small>2017 · 4 TEMAS</small><h3>Ballads,<br>Bullets & Bulls</h3><p>ARRAKO × Norek Beat</p></div>
