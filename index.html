@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ARRAKO — música, letras, producción e imagen. PESO MUERTO · 23.10.2026.">
+<meta name="description" content="ARRAKO — PESO MUERTO, álbum de 18 piezas disponible en Spotify. Música, letras y universo artístico.">
 <meta name="theme-color" content="#040404">
 
 <meta property="og:title" content="ARRAKO — PESO MUERTO">
-<meta property="og:description" content="Nuevo álbum · 23.10.2026">
+<meta property="og:description" content="PESO MUERTO · 18 piezas · Ya disponible para escuchar en Spotify">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arrako.com/">
 <meta property="og:image" content="https://arrako.com/assets/images/entrada-monolito-peso-muerto.png">
@@ -834,6 +834,14 @@ footer{
 /* Enlace editorial de Peso Muerto, integrado en la estética de la web */
 .museo-cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:14px 17px;border:1px solid var(--amber);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-decoration:none;transition:background .2s,color .2s}
 .museo-cta:hover,.museo-cta:focus-visible{background:var(--amber-hi);color:#040404}
+/* Acceso inmediato al álbum publicado, sin romper la identidad de la web */
+.album-listen{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px}
+.album-listen a{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:13px 17px;font-size:11px;font-weight:800;letter-spacing:.09em;transition:background .2s,color .2s,border-color .2s}
+.album-listen .album-listen-primary{background:var(--amber-hi);border:1px solid var(--amber-hi);color:#070707}
+.album-listen .album-listen-primary:hover,.album-listen .album-listen-primary:focus-visible{background:#edbc5f;border-color:#edbc5f}
+.album-listen .album-listen-secondary{border:1px solid rgba(201,149,51,.55);color:var(--white)}
+.album-listen .album-listen-secondary:hover,.album-listen .album-listen-secondary:focus-visible{background:rgba(201,149,51,.16)}
+.album .museo-cta{margin-top:14px}
 @media(max-width:720px){nav{flex-wrap:wrap;column-gap:16px;row-gap:8px}}
 
 
@@ -1074,7 +1082,7 @@ nav .menu-universe{color:#ead4ab;font-size:.78em;letter-spacing:.08em;margin-lef
     <div class="album-copy">
 
       <div class="section-kicker">
-        NUEVO ÁLBUM
+        YA DISPONIBLE · 18 PIEZAS
       </div>
 
       <h2>
@@ -1088,9 +1096,9 @@ nav .menu-universe{color:#ead4ab;font-size:.78em;letter-spacing:.08em;margin-lef
       </div>
 
       <p>
-        Nuevo trabajo de ARRAKO.
-        Rap, escritura, producción e imagen
-        construidos como una sola pieza.
+        El álbum de ARRAKO, publicado el 23 de octubre de 2026.
+        Dieciocho piezas de rap, escritura y producción.
+        Escúchalo completo o explora su universo.
       </p>
 
       <div
@@ -1121,6 +1129,11 @@ nav .menu-universe{color:#ead4ab;font-size:.78em;letter-spacing:.08em;margin-lef
 
         </div>
 
+      </div>
+
+      <div class="album-listen" aria-label="Escuchar el álbum Peso Muerto">
+        <a class="album-listen-primary" href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Escuchar Peso Muerto de ARRAKO en Spotify (abre otra pestaña)">ESCUCHAR EN SPOTIFY <span aria-hidden="true">↗</span></a>
+        <a class="album-listen-secondary" href="https://www.youtube.com/@Arrakoo/videos" target="_blank" rel="noopener noreferrer">VÍDEOS EN YOUTUBE <span aria-hidden="true">↗</span></a>
       </div>
 
       <a class="museo-cta" href="/peso-muerto/universo/" aria-label="Visitar el Universo Peso Muerto, el museo interactivo del álbum">EXPLORAR EL UNIVERSO <span aria-hidden="true">↗</span></a>
