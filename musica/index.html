@@ -65,6 +65,16 @@ footer{width:min(1450px,94%);min-height:100px;margin:auto;display:flex;align-ite
 @media(max-width:1200px){.works{grid-template-columns:repeat(3,1fr)}.song-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:800px){.frame{display:none}.works{grid-template-columns:1fr 1fr}.song-grid{grid-template-columns:1fr 1fr}.comida{grid-template-columns:1fr}.comida-cover{max-height:450px}.track{grid-template-columns:1fr}.section-head{display:block}.head nav a:nth-child(n+4){display:none}}
 @media(max-width:520px){.works,.song-grid{grid-template-columns:1fr}.brand{width:150px}.head nav{gap:12px}.head nav a:nth-child(n+3){display:none}}
+.release-list{width:min(1450px,94%);margin:auto;padding:5px 0 75px;border-bottom:1px solid var(--line)}
+.release-tracklist{padding:0;margin:0;list-style:none;border-top:1px solid var(--line)}
+.release-track{min-height:62px;padding:12px 8px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:35px minmax(180px,1fr) auto auto;align-items:center;gap:18px}
+.release-track:hover{background:rgba(255,255,255,.026)}
+.release-track-number{color:var(--jade);font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+.release-track-name{font-size:15px;line-height:1.35;font-weight:700}
+.release-track a{font-size:10px;font-weight:700;letter-spacing:.06em;color:#d0a04a;padding:10px 6px;white-space:nowrap}
+.release-track a:hover,.release-track a:focus-visible{color:#ffd383;text-decoration:underline}
+@media(max-width:830px){.release-track{grid-template-columns:26px minmax(0,1fr);gap:8px 14px}.release-track-name{grid-column:2}.release-track a{grid-row:2;white-space:normal;padding:8px 0}.release-track a:nth-of-type(1){grid-column:2}.release-track a:nth-of-type(2){grid-column:2;grid-row:3}.release-list .section-head{display:block}}
+@media(max-width:520px){.release-track-name{font-size:14px}.release-track{gap:4px 12px}}
 </style>
 </head>
 <body>
@@ -92,6 +102,120 @@ footer{width:min(1450px,94%);min-height:100px;margin:auto;display:flex;align-ite
     <p class="release-caption">También puedes <a href="/peso-muerto/universo/" style="color:var(--yellow);text-decoration:underline">explorar el museo interactivo del álbum</a>.</p>
   </div>
 </section>
+<section class="release-list" id="peso-muerto-pistas" aria-labelledby="peso-muerto-tracklist-heading">
+  <div class="section-head"><div><small>LAS DIECIOCHO PIEZAS</small><h2 id="peso-muerto-tracklist-heading">PESO MUERTO · CANCIONES</h2></div><p>Elige una pieza para acceder directamente a su sala, letra y lectura en el museo. Los enlaces de Spotify abren el álbum completo: selecciona allí la pista indicada.</p></div>
+  <ol class="release-tracklist">
+        <li class="release-track">
+          <span class="release-track-number">01</span>
+          <span class="release-track-name">Verbo Clínico</span>
+          <a href="/peso-muerto/universo/#pieza-1" aria-label="Leer la letra y visitar la sala de Verbo Clínico">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 1, Verbo Clínico">SPOTIFY · PISTA 01 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">02</span>
+          <span class="release-track-name">Amor circunstancial</span>
+          <a href="/peso-muerto/universo/#pieza-2" aria-label="Leer la letra y visitar la sala de Amor circunstancial">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 2, Amor circunstancial">SPOTIFY · PISTA 02 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">03</span>
+          <span class="release-track-name">Osario</span>
+          <a href="/peso-muerto/universo/#pieza-3" aria-label="Leer la letra y visitar la sala de Osario">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 3, Osario">SPOTIFY · PISTA 03 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">04</span>
+          <span class="release-track-name">Coloquialmente</span>
+          <a href="/peso-muerto/universo/#pieza-4" aria-label="Leer la letra y visitar la sala de Coloquialmente">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 4, Coloquialmente">SPOTIFY · PISTA 04 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">05</span>
+          <span class="release-track-name">AutodEidacta</span>
+          <a href="/peso-muerto/universo/#pieza-5" aria-label="Leer la letra y visitar la sala de AutodEidacta">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 5, AutodEidacta">SPOTIFY · PISTA 05 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">06</span>
+          <span class="release-track-name">Sedimento</span>
+          <a href="/peso-muerto/universo/#pieza-6" aria-label="Leer la letra y visitar la sala de Sedimento">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 6, Sedimento">SPOTIFY · PISTA 06 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">07</span>
+          <span class="release-track-name">Pity by Boy</span>
+          <a href="/peso-muerto/universo/#pieza-7" aria-label="Leer la letra y visitar la sala de Pity by Boy">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 7, Pity by Boy">SPOTIFY · PISTA 07 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">08</span>
+          <span class="release-track-name">Revoluz</span>
+          <a href="/peso-muerto/universo/#pieza-8" aria-label="Leer la letra y visitar la sala de Revoluz">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 8, Revoluz">SPOTIFY · PISTA 08 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">09</span>
+          <span class="release-track-name">Esto y aquello</span>
+          <a href="/peso-muerto/universo/#pieza-9" aria-label="Leer la letra y visitar la sala de Esto y aquello">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 9, Esto y aquello">SPOTIFY · PISTA 09 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">10</span>
+          <span class="release-track-name">Modo Focus</span>
+          <a href="/peso-muerto/universo/#pieza-10" aria-label="Leer la letra y visitar la sala de Modo Focus">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 10, Modo Focus">SPOTIFY · PISTA 10 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">11</span>
+          <span class="release-track-name">Atiborrado</span>
+          <a href="/peso-muerto/universo/#pieza-11" aria-label="Leer la letra y visitar la sala de Atiborrado">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 11, Atiborrado">SPOTIFY · PISTA 11 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">12</span>
+          <span class="release-track-name">Derrape Limpio</span>
+          <a href="/peso-muerto/universo/#pieza-12" aria-label="Leer la letra y visitar la sala de Derrape Limpio">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 12, Derrape Limpio">SPOTIFY · PISTA 12 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">13</span>
+          <span class="release-track-name">Jade</span>
+          <a href="/peso-muerto/universo/#pieza-13" aria-label="Leer la letra y visitar la sala de Jade">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 13, Jade">SPOTIFY · PISTA 13 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">14</span>
+          <span class="release-track-name">Date una vuelta</span>
+          <a href="/peso-muerto/universo/#pieza-14" aria-label="Leer la letra y visitar la sala de Date una vuelta">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 14, Date una vuelta">SPOTIFY · PISTA 14 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">15</span>
+          <span class="release-track-name">Más aquí</span>
+          <a href="/peso-muerto/universo/#pieza-15" aria-label="Leer la letra y visitar la sala de Más aquí">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 15, Más aquí">SPOTIFY · PISTA 15 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">16</span>
+          <span class="release-track-name">Nucleosíntesis</span>
+          <a href="/peso-muerto/universo/#pieza-16" aria-label="Leer la letra y visitar la sala de Nucleosíntesis">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 16, Nucleosíntesis">SPOTIFY · PISTA 16 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">17</span>
+          <span class="release-track-name">La promesa de los 18</span>
+          <a href="/peso-muerto/universo/#pieza-17" aria-label="Leer la letra y visitar la sala de La promesa de los 18">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 17, La promesa de los 18">SPOTIFY · PISTA 17 ↗</a>
+        </li>
+        <li class="release-track">
+          <span class="release-track-number">18</span>
+          <span class="release-track-name">AÚN</span>
+          <a href="/peso-muerto/universo/#pieza-18" aria-label="Leer la letra y visitar la sala de AÚN">LETRA Y UNIVERSO ↗</a>
+          <a href="https://open.spotify.com/intl-es/album/4D6MBMoGVIPZQNegCOviIE" target="_blank" rel="noopener noreferrer" aria-label="Abrir el álbum en Spotify para escuchar la pista 18, AÚN">SPOTIFY · PISTA 18 ↗</a>
+        </li>
+  </ol>
+</section>
+
 <section class="section" id="trabajos">
   <div class="section-head"><div><small>01 / DISCOGRAFÍA Y TRABAJOS</small><h2>TRABAJOS ANTERIORES</h2></div><p>Trabajos anteriores a Peso Muerto, ordenados de más reciente a más antiguo. Los destinos verificados abren al pulsar la tarjeta completa.</p></div>
   <div class="works">
